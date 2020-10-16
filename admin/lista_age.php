@@ -152,6 +152,7 @@ strtoupper($label_language_values['pm']));
 		$bk="disabled";
 	}
 	/* array_push($row,$bk); */
+	/*gmbk*/
 	$row["bk"] = $bk;
 		$data[] = $row;
 	}
