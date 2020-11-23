@@ -66,10 +66,10 @@ $objservice_method_unit->conn = $conn;
 $objdesignset = new do4me_design_settings();
 $objdesignset->conn = $conn;
 
-$symbol_position=$settings->get_option('ct_currency_symbol_position');
-$decimal=$settings->get_option('ct_price_format_decimal_places');
+$symbol_position=$settings->get_option('d4mcurrency_symbol_position');
+$decimal=$settings->get_option('d4mprice_format_decimal_places');
 
-$lang = $settings->get_option("ct_language");
+$lang = $settings->get_option("d4mlanguage");
 $label_language_values = array();
 $language_label_arr = $settings->get_all_labelsbyid($lang);
 
@@ -112,20 +112,20 @@ else
 		$label_language_values[$key] = urldecode($value);
 	}
 }
-$calculation_policy = $settings->get_option("ct_calculation_policy");
+$calculation_policy = $settings->get_option("d4mcalculation_policy");
 if(isset($_POST['s_m_units_maxlimit_5'])){
     $objservice_method_unit->services_id = $_POST['service_id'];
     $objservice_method_unit->methods_id = $_POST['method_id'];
     $maxx_limitts = $objservice_method_unit->get_maxlimit_by_service_methods_ids();
 	$mmnameee = 'ad_unit'.$maxx_limitts['id'];
     ?>
-    <div class="ct-list-header">
+    <div class="d4m-list-header">
         <h3 class="header3"><?php  echo $maxx_limitts['units_title'] ?></h3>
 	</div>
-    <div class="ct-address-area-main">
-        <div class="ct-area-type">
+    <div class="d4m-address-area-main">
+        <div class="d4m-area-type">
             <span class="area-header"><?php if($maxx_limitts['limit_title'] != ""){echo $maxx_limitts['limit_title'];}else{echo ucwords($maxx_limitts['units_title']);} ?></span>
-            <input maxlength="5" type="text" class="ct-area-input ct_area_m_units_rattee" id="ct_area_m_units" data-service_id="<?php echo $_POST['service_id']; ?>" data-units_id="<?php echo $maxx_limitts['id']; ?>"  data-method_id="<?php echo $_POST['method_id']; ?>" data-rate="" data-method_name="<?php echo $maxx_limitts['units_title'] ?>" data-maxx_limit="<?php echo $maxx_limitts['maxlimit']; ?>" data-minn_limit="<?php echo $maxx_limitts['minlimit']; ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>"/>
+            <input maxlength="5" type="text" class="d4m-area-input d4marea_m_units_rattee" id="d4marea_m_units" data-service_id="<?php echo $_POST['service_id']; ?>" data-units_id="<?php echo $maxx_limitts['id']; ?>"  data-method_id="<?php echo $_POST['method_id']; ?>" data-rate="" data-method_name="<?php echo $maxx_limitts['units_title'] ?>" data-maxx_limit="<?php echo $maxx_limitts['maxlimit']; ?>" data-minn_limit="<?php echo $maxx_limitts['minlimit']; ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>"/>
             <span class="area-type"><?php echo $maxx_limitts['unit_symbol'] ?></span>
         </div>
     </div>
@@ -143,9 +143,9 @@ if(isset($_POST['s_m_units_maxlimit_5'])){
         $u_msg['status']="Incorrect Email Address or Password";
         echo json_encode($u_msg);die();
     }else{
-        unset($_SESSION['ct_adminid']);
-        $_SESSION['ct_login_user_id']=$existing_login[0];
-        $_SESSION['ct_useremail']=$existing_login[1];
+        unset($_SESSION['d4madminid']);
+        $_SESSION['d4mlogin_user_id']=$existing_login[0];
+        $_SESSION['d4museremail']=$existing_login[1];
 
         $u_msg=array();
         $u_msg['status']="Login Sucessfull";
@@ -162,33 +162,33 @@ if(isset($_POST['s_m_units_maxlimit_5'])){
         $u_msg['notes']=$existing_login[10];
         $u_msg['vc_status']=$existing_login[11];
         $u_msg['p_status']=$existing_login[12];
-        $u_msg['contact_status']=$existing_login[13]; 
+        $u_msg['contad4mstatus']=$existing_login[13]; 
 				
 				
 				
-        $u_msg['wallet_amount']='<input type="radio" name="payment-methods" value="Wallet-payment" class="input-radio payment_gateway user_wallet_amount_value wallet_amount" data-wallet="'.$existing_login[19].'" id="wallet" checked="checked" />
+        $u_msg['wallet_amount']='<input type="radio" name="payment-methods" value="Wallet-payment" class="input-radio payment_gateway user_wallet_amount_value wallet_amount" data-wallet="'.$existing_login[19].'" id="wallet"  />
 
-			<label for="wallet"  class="locally-radio"><span class="user_wallet_amount" ><p style="margin-left: 25px;line-height: 0.9;">Wallet('.$settings->get_option('ct_currency_symbol').$existing_login[19].')</p></span></label>';
+			<label for="wallet"  class="locally-radio"><span class="user_wallet_amount" ><p style="margin-left: 25px;line-height: 0.9;">Wallet('.$settings->get_option('d4mcurrency_symbol').$existing_login[19].')</p></span></label>';
 
         echo json_encode($u_msg);die();
     }
 }/*  Code For Existing User Login  */
 elseif(isset($_POST['action']) && $_POST['action']=='get_login_user_data'){
-    if(!isset($_SESSION['ct_login_user_id'])){
+    if(!isset($_SESSION['d4mlogin_user_id'])){
         $u_msg=array();
         $u_msg['status']="No Login";
         echo json_encode($u_msg);die();
     }
-    $user->existing_username=trim(strip_tags(mysqli_real_escape_string($conn,$_SESSION['ct_useremail'])));
+    $user->existing_username=trim(strip_tags(mysqli_real_escape_string($conn,$_SESSION['d4museremail'])));
     $existing_login=$user->check_login_user();
     if(!$existing_login){
         $u_msg=array();
         $u_msg['status']="Incorrect Email Address or Password";
         echo json_encode($u_msg);die();
     }else{
-        unset($_SESSION['ct_adminid']);
-        $_SESSION['ct_login_user_id']=$existing_login[0];
-        $_SESSION['ct_useremail']=$existing_login[1];
+        unset($_SESSION['d4madminid']);
+        $_SESSION['d4mlogin_user_id']=$existing_login[0];
+        $_SESSION['d4museremail']=$existing_login[1];
 
         $u_msg=array();
         $u_msg['status']="Login Sucessfull";
@@ -205,16 +205,16 @@ elseif(isset($_POST['action']) && $_POST['action']=='get_login_user_data'){
         $u_msg['notes']=$existing_login[10];
         $u_msg['vc_status']=$existing_login[11];
         $u_msg['p_status']=$existing_login[12];
-        $u_msg['contact_status']=$existing_login[13];
+        $u_msg['contad4mstatus']=$existing_login[13];
 
         echo json_encode($u_msg);die();
     }
 }
 /* code for logout frontend */
 elseif(isset($_POST['action']) && $_POST['action']=='logout'){
-    if(isset($_SESSION['ct_login_user_id'])){
-        unset($_SESSION['ct_login_user_id']);
-        unset($_SESSION['ct_useremail']);
+    if(isset($_SESSION['d4mlogin_user_id'])){
+        unset($_SESSION['d4mlogin_user_id']);
+        unset($_SESSION['d4museremail']);
         echo "logout successful";
     }
 }
@@ -224,14 +224,14 @@ elseif(isset($_POST['operationgetmethods']))
 	unset($_SESSION['staff_id_cal']);
 	
 	$service_array = array("method"=>array());
-    $_SESSION['ct_cart'] = $service_array;
+    $_SESSION['d4mcart'] = $service_array;
     $objservice_method->service_id = $_POST['service_id'];
     $res = $objservice_method->methodsbyserviceid_front();
 
     $json_array=array();
     if(mysqli_num_rows($res) <= 1){
         $arr = mysqli_fetch_array($res);
-        $json_array['m_html'] = "<div class='ct_method_tab-slider--nav ct_method_tab-slider--nav_dynamic".$arr['id']."'><ul class='ct_method_tab-slider-tabs ct_methods_slide'><li class='ct_method_tab-slider-trigger  ct_method_tab-slider-trigger_dynamic".$arr['id']." s_m_units_design ser_mthd_units dis_metd_name".$arr['id']."'  data-id='".$arr['id']."' data-maindivid='".$arr['id']."' data-methoddss='".$arr['method_title']."' data-service_id='".$_POST['service_id']."'>".$arr['method_title']."</li></ul></div>";
+        $json_array['m_html'] = "<div class='d4mmethod_tab-slider--nav d4mmethod_tab-slider--nav_dynamic".$arr['id']."'><ul class='d4mmethod_tab-slider-tabs d4mmethods_slide'><li class='d4mmethod_tab-slider-trigger  d4mmethod_tab-slider-trigger_dynamic".$arr['id']." s_m_units_design ser_mthd_units dis_metd_name".$arr['id']."'  data-id='".$arr['id']."' data-maindivid='".$arr['id']."' data-methoddss='".$arr['method_title']."' data-service_id='".$_POST['service_id']."'>".$arr['method_title']."</li></ul></div>";
         $json_array['status']='single';
         echo json_encode($json_array);
     }else{
@@ -241,9 +241,9 @@ elseif(isset($_POST['operationgetmethods']))
         while($arr = mysqli_fetch_array($res)){
 			if($ig == 1){
 				$main_id_of_div = $arr['id'];
-				$html .= '<div class="ct_method_tab-slider--nav ct_method_tab-slider--nav_dynamic'.$arr['id'].'" data-id="'.$arr['id'].'"><ul class="ct_method_tab-slider-tabs ct_methods_slide">';
+				$html .= '<div class="d4mmethod_tab-slider--nav d4mmethod_tab-slider--nav_dynamic'.$arr['id'].'" data-id="'.$arr['id'].'"><ul class="d4mmethod_tab-slider-tabs d4mmethods_slide">';
 			}
-			$html .="<li class='ct_method_tab-slider-trigger ct_method_tab-slider-trigger_dynamic".$arr['id']." s_m_units_design ser_mthd_units dis_metd_name".$arr['id']."'  data-id='".$arr['id']."'  data-maindivid='".$main_id_of_div."' data-methoddss='".$arr['method_title']."' data-service_id='".$_POST['service_id']."'>".$arr['method_title']."</li>";
+			$html .="<li class='d4mmethod_tab-slider-trigger d4mmethod_tab-slider-trigger_dynamic".$arr['id']." s_m_units_design ser_mthd_units dis_metd_name".$arr['id']."'  data-id='".$arr['id']."'  data-maindivid='".$main_id_of_div."' data-methoddss='".$arr['method_title']."' data-service_id='".$_POST['service_id']."'>".$arr['method_title']."</li>";
 			if($ig == $total_count && $total_count <= 3){
 				$ig = 0;
 				$html .="</ul></div>";
@@ -258,13 +258,13 @@ elseif(isset($_POST['operationgetmethods']))
         $json_array['status']='multiple';
         echo json_encode($json_array);
     }
-}elseif(isset($_POST['staff_select_according_service'])){
+}elseif(isset($_POST['staff_seled4maccording_service'])){
 	@ob_clean();
 	ob_start();
 	/* $postal_code_list =$settings->get_option_postal(); */
 	
 	$service_provider = $_POST['service_id'];
-	$objadmin->staff_select_according_service = $service_provider;
+	$objadmin->staff_seled4maccording_service = $service_provider;
     $service_provider_list =$objadmin->get_service_acc_provider();
 	
 	
@@ -296,7 +296,7 @@ elseif(isset($_POST['get_service_addons'])) {
 		?>
 		<script>
 		jQuery(document).ready(function() {
-			jQuery('.ct-tooltip-addon').tooltipster({
+			jQuery('.d4m-tooltip-addon').tooltipster({
 				animation: 'grow',
 				delay: 20,
 				theme: 'tooltipster-shadow',
@@ -304,15 +304,15 @@ elseif(isset($_POST['get_service_addons'])) {
 			});
 		});
 		</script>
-        <div class="ct-list-header">
+        <div class="d4m-list-header">
             <h3 class="header3 common-text-bg"><?php echo $label_language_values['extra_services']; ?></h3>
-			 <?php  if($settings->get_option("ct_front_tool_tips_status")=='on' && $settings->get_option("ct_front_tool_tips_addons_services")!=''){?>
-			<a class="ct-tooltip-addon" href="#" data-toggle="tooltip" title="<?php echo $settings->get_option("ct_front_tool_tips_addons_services");?>."><i class="fa fa-info-circle fa-lg"></i></a>	
+			 <?php  if($settings->get_option("d4mfront_tool_tips_status")=='on' && $settings->get_option("d4mfront_tool_tips_addons_services")!=''){?>
+			<a class="d4m-tooltip-addon" href="#" data-toggle="tooltip" title="<?php echo $settings->get_option("d4mfront_tool_tips_addons_services");?>."><i class="fa fa-info-circle fa-lg"></i></a>	
 			<?php  } ?>
-            <p class="ct-sub" style="display: none;"><?php echo $label_language_values['for_initial_cleaning_only_contact_us_to_apply_to_recurrings']; ?></p>
+            <p class="d4m-sub" style="display: none;"><?php echo $label_language_values['for_initial_cleaning_only_contad4mus_to_apply_to_recurrings']; ?></p>
         </div>
         <?php 
-        if($settings->get_option('ct_addons_default_design') == 1){
+        if($settings->get_option('d4maddons_default_design') == 1){
             ?>
 
             <ul class="addon-service-list fl remove_addonsss">
@@ -326,11 +326,11 @@ elseif(isset($_POST['get_service_addons'])) {
                             $mmnameee = 'ad_unit'.$adonsdata['id'];
 
                             ?>
-                            <li class="ct-sm-6 ct-md-4 ct-lg-3 ct-xs-12 mb-15">
-                              <input type="checkbox" name="addon-checkbox" class="addon-checkbox add_addon_in_cart_for_multipleqty" data-status="2" data-duration_value="-1" data-id="<?php echo $adonsdata['id']; ?>" id="ct-addon-<?php echo $adonsdata['id']; ?>" data-rate="<?php echo $adonsdata['base_price']; ?>" data-service_id="<?php echo $adonsdata['service_id']; ?>" data-method_id="0" data-method_name="<?php echo $adonsdata['addon_service_name']; ?>" data-units_id="<?php echo $adonsdata['id']; ?>" data-type="<?php echo "addon"; ?>" data-mnamee="<?php echo $mmnameee; ?>" />
-                              <label class="ct-addon-ser border-c ct_addon_ser<?php  echo $adonsdata['id']; ?>" for="ct-addon-<?php echo $adonsdata['id']; ?>"><span></span>
-                                  <div class="addon-price" style="width: 8px; z-index: auto; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; display: block; opacity: 12;"><?php echo $general->ct_price_format($adonsdata['base_price'],$symbol_position,$decimal); ?></div>
-                                  <div class="ct-addon-img">
+                            <li class="d4m-sm-6 d4m-md-4 d4m-lg-3 d4m-xs-12 mb-15">
+                              <input type="checkbox" name="addon-checkbox" class="addon-checkbox add_addon_in_cart_for_multipleqty" data-status="2" data-duration_value="-1" data-id="<?php echo $adonsdata['id']; ?>" id="d4m-addon-<?php echo $adonsdata['id']; ?>" data-rate="<?php echo $adonsdata['base_price']; ?>" data-service_id="<?php echo $adonsdata['service_id']; ?>" data-method_id="0" data-method_name="<?php echo $adonsdata['addon_service_name']; ?>" data-units_id="<?php echo $adonsdata['id']; ?>" data-type="<?php echo "addon"; ?>" data-mnamee="<?php echo $mmnameee; ?>" />
+                              <label class="d4m-addon-ser border-c d4maddon_ser<?php  echo $adonsdata['id']; ?>" for="d4m-addon-<?php echo $adonsdata['id']; ?>"><span></span>
+                                  <div class="addon-price" style="width: 8px; z-index: auto; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; display: block; opacity: 12;"><?php //echo $general->d4mprice_format($adonsdata['base_price'],$symbol_position,$decimal); ?></div>
+                                  <div class="d4m-addon-img">
                                     <img src="
                                       <?php 
                                       if($adonsdata['image'] == '' && $adonsdata['predefine_image'] == ''){
@@ -347,19 +347,19 @@ elseif(isset($_POST['get_service_addons'])) {
                                   </div>
                                   <div class="addon-name fl ta-c"><?php echo $adonsdata['addon_service_name']; ?></div>
                                 </label>
-                                <div class="nsc-content-camera nsc-hide">
+                                <!-- <div class="nsc-content-camera nsc-hide">
                                   <input type="text" name="">Hi
-                                </div>
+                                </div> -->
                             </li>
                         <?php 
                         }else{
                             $mmnameee = 'ad_unit'.$adonsdata['id'];
                             ?>
-                            <li class="ct-sm-6 ct-md-4 ct-lg-3 ct-xs-12 mb-15">
-                                <input type="checkbox" name="addon-checkbox" class="addon-checkbox addons_servicess" data-status="2" data-id="<?php echo $adonsdata['id']; ?>" id="ct-addon-<?php echo $adonsdata['id']; ?>" data-mnamee="<?php echo $mmnameee; ?>" data-service_id="<?php echo $adonsdata['service_id']; ?>" data-method_id="0" data-method_name="<?php echo $adonsdata['addon_service_name']; ?>"/>
-                                <label class="ct-addon-ser border-c ct_addon_ser<?php  echo $adonsdata['id']; ?>" for="ct-addon-<?php echo $adonsdata['id']; ?>"><span></span>
-                                    <div class="addon-price"><?php echo $general->ct_price_format($adonsdata['base_price'],$symbol_position,$decimal); ?></div>
-                                    <div class="ct-addon-img">
+                            <li class="d4m-sm-6 d4m-md-4 d4m-lg-3 d4m-xs-12 mb-15">
+                                <input type="checkbox" name="addon-checkbox" class="addon-checkbox addons_servicess" data-status="2" data-id="<?php echo $adonsdata['id']; ?>" id="d4m-addon-<?php echo $adonsdata['id']; ?>" data-mnamee="<?php echo $mmnameee; ?>" data-service_id="<?php echo $adonsdata['service_id']; ?>" data-method_id="0" data-method_name="<?php echo $adonsdata['addon_service_name']; ?>"/>
+                                <label class="d4m-addon-ser border-c d4maddon_ser<?php  echo $adonsdata['id']; ?>" for="d4m-addon-<?php echo $adonsdata['id']; ?>"><span></span>
+                                    <div class="addon-price"><?php echo $general->d4mprice_format($adonsdata['base_price'],$symbol_position,$decimal); ?></div>
+                                    <div class="d4m-addon-img">
                                         <img src="
                                         <?php 
                                         if($adonsdata['image'] == '' && $adonsdata['predefine_image'] == ''){
@@ -382,7 +382,7 @@ elseif(isset($_POST['get_service_addons'])) {
                     }
                 }else{
                     ?>
-                    <p class="ct-sub"><?php echo $label_language_values['extra_services_not_available']; ?></p>
+                    <p class="d4m-sub"><?php echo $label_language_values['extra_services_not_available']; ?></p>
                 <?php 
                 }
                 ?>
@@ -402,11 +402,11 @@ elseif(isset($_POST['get_service_addons'])) {
                         if($adonsdata['multipleqty'] == 'N'){
                             $mmnameee = 'ad_unit'.$adonsdata['id'];
                             ?>
-                            <li class="ct-sm-6 ct-md-4 ct-lg-3 ct-xs-12 mb-15">
-                              <input type="checkbox" name="addon-checkbox" class="addon-checkbox add_addon_in_cart_for_multipleqty" data-status="2" data-duration_value="-1" data-id="<?php echo $adonsdata['id']; ?>" id="ct-addon-<?php echo $adonsdata['id']; ?>" data-rate="<?php echo $adonsdata['base_price']; ?>" data-service_id="<?php echo $adonsdata['service_id']; ?>" data-method_id="0" data-method_name="<?php echo $adonsdata['addon_service_name']; ?>" data-units_id="<?php echo $adonsdata['id']; ?>" data-type="<?php echo "addon"; ?>" data-mnamee="<?php echo $mmnameee; ?>" />
-                              <label class="ct-addon-ser border-c ct_addon_ser<?php  echo $adonsdata['id']; ?>" for="ct-addon-<?php echo $adonsdata['id']; ?>"><span></span>
-                                  <div class="addon-price"><?php echo $general->ct_price_format($adonsdata['base_price'],$symbol_position,$decimal); ?></div>
-                                  <div class="ct-addon-img">
+                            <li class="d4m-sm-6 d4m-md-4 d4m-lg-3 d4m-xs-12 mb-15">
+                              <input type="checkbox" name="addon-checkbox" class="addon-checkbox add_addon_in_cart_for_multipleqty" data-status="2" data-duration_value="-1" data-id="<?php echo $adonsdata['id']; ?>" id="d4m-addon-<?php echo $adonsdata['id']; ?>" data-rate="<?php echo $adonsdata['base_price']; ?>" data-service_id="<?php echo $adonsdata['service_id']; ?>" data-method_id="0" data-method_name="<?php echo $adonsdata['addon_service_name']; ?>" data-units_id="<?php echo $adonsdata['id']; ?>" data-type="<?php echo "addon"; ?>" data-mnamee="<?php echo $mmnameee; ?>" />
+                              <label class="d4m-addon-ser border-c d4maddon_ser<?php  echo $adonsdata['id']; ?>" for="d4m-addon-<?php echo $adonsdata['id']; ?>"><span></span>
+                                  <div class="addon-price"><?php echo $general->d4mprice_format($adonsdata['base_price'],$symbol_position,$decimal); ?></div>
+                                  <div class="d4m-addon-img">
                                     <img src="<?php
                                     if($adonsdata['image'] == '' && $adonsdata['predefine_image'] == ''){
                                       echo SITE_URL.'/assets/images/services/default.png';
@@ -423,14 +423,14 @@ elseif(isset($_POST['get_service_addons'])) {
                         <?php 
                         }else{
                             ?>
-                            <li class="ct-sm-6 ct-md-4 ct-lg-3 ct-xs-12 mb-15 add_addon_class_selected" title='<?php  echo $adonsdata['addon_service_description'];?>' class="ct-sm-6 ct-md-4 ct-lg-3 ct-xs-12 remove_service_class ct-tooltip-services-addons tooltipstered">
+                            <li class="d4m-sm-6 d4m-md-4 d4m-lg-3 d4m-xs-12 mb-15 add_addon_class_selected" title='<?php  echo $adonsdata['addon_service_description'];?>' class="d4m-sm-6 d4m-md-4 d4m-lg-3 d4m-xs-12 remove_service_class d4m-tooltip-services-addons tooltipstered">
                                 <?php 
                                 $mmnameee = 'ad_unit'.$adonsdata['id'];
                                 ?>
-                                <input type="checkbox" name="addon-checkbox" class="addon-checkbox addons_servicess_2" data-id="<?php echo $adonsdata['id']; ?>" id="ct-addon-<?php echo $adonsdata['id']; ?>"  data-mnamee="<?php echo $mmnameee; ?>"/>
-                                <label class="ct-addon-ser border-c" for="ct-addon-<?php echo $adonsdata['id']; ?>"><span></span>
-                                    <div class="addon-price"><?php echo $general->ct_price_format($adonsdata['base_price'],$symbol_position,$decimal); ?></div>
-                                    <div class="ct-addon-img"><img src="<?php
+                                <input type="checkbox" name="addon-checkbox" class="addon-checkbox addons_servicess_2" data-id="<?php echo $adonsdata['id']; ?>" id="d4m-addon-<?php echo $adonsdata['id']; ?>"  data-mnamee="<?php echo $mmnameee; ?>"/>
+                                <label class="d4m-addon-ser border-c" for="d4m-addon-<?php echo $adonsdata['id']; ?>"><span></span>
+                                    <div class="addon-price"><?php echo $general->d4mprice_format($adonsdata['base_price'],$symbol_position,$decimal); ?></div>
+                                    <div class="d4m-addon-img"><img src="<?php
                                         if($adonsdata['image'] == '' && $adonsdata['predefine_image'] == ''){
                                             echo SITE_URL.'/assets/images/services/default.png';
                                         }
@@ -444,7 +444,7 @@ elseif(isset($_POST['get_service_addons'])) {
                                         } ?>" /></div>
                                     <div class="addon-name fl ta-c"><?php echo $adonsdata['addon_service_name']; ?></div>
                                 </label>
-                                <div class="ct-addon-count border-c  add_minus_button add_minus_buttonid<?php  echo $adonsdata['id']; ?>">
+                                <div class="d4m-addon-count border-c  add_minus_button add_minus_buttonid<?php  echo $adonsdata['id']; ?>">
 
                                     <?php 
                                     $addons_rates->maxlimit=1;
@@ -457,12 +457,12 @@ elseif(isset($_POST['get_service_addons'])) {
                                     }
 									                    $mmnameee = 'ad_unit'.$adonsdata['id'];
                                     ?>
-                                    <div class="ct-btn-group">
-                                        <button data-ids="<?php echo $adonsdata['id']; ?>" id="minus<?php  echo $adonsdata['id']; ?>" class="minus ct-btn-left ct-small-btn" type="button" data-units_id="<?php echo $adonsdata['id']; ?>" data-duration_value="" data-mnamee="<?php echo $mmnameee; ?>" data-method_name="<?php echo $adonsdata['addon_service_name'] ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-rate="" data-method_id="0" data-type="<?php echo "addon"; ?>">-</button>
+                                    <div class="d4m-btn-group">
+                                        <button data-ids="<?php echo $adonsdata['id']; ?>" id="minus<?php  echo $adonsdata['id']; ?>" class="minus d4m-btn-left d4m-small-btn" type="button" data-units_id="<?php echo $adonsdata['id']; ?>" data-duration_value="" data-mnamee="<?php echo $mmnameee; ?>" data-method_name="<?php echo $adonsdata['addon_service_name'] ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-rate="" data-method_id="0" data-type="<?php echo "addon"; ?>">-</button>
 
-                                        <input type="text" value="0" class="ct-btn-text addon_qty data_addon_qtyrate qtyyy_<?php  echo $mmnameee; ?>" data-rate="<?php echo $uniitt_rate; ?>"/>
+                                        <input type="text" value="0" class="d4m-btn-text addon_qty data_addon_qtyrate qtyyy_<?php  echo $mmnameee; ?>" data-rate="<?php echo $uniitt_rate; ?>"/>
 
-                                        <button data-ids="<?php echo $adonsdata['id']; ?>" id="add<?php  echo $adonsdata['id']; ?>" data-db-qty="<?php echo $adonsdata["maxqty"]; ?>" data-mnamee="<?php echo $mmnameee; ?>" class="add ct-btn-right float-right ct-small-btn" type="button" data-units_id="<?php echo $adonsdata['id']; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="0" data-duration_value="" data-method_name="<?php echo $adonsdata['addon_service_name'] ?>" data-rate="" data-type="<?php echo "addon"; ?>">+</button>
+                                        <button data-ids="<?php echo $adonsdata['id']; ?>" id="add<?php  echo $adonsdata['id']; ?>" data-db-qty="<?php echo $adonsdata["maxqty"]; ?>" data-mnamee="<?php echo $mmnameee; ?>" class="add d4m-btn-right float-right d4m-small-btn" type="button" data-units_id="<?php echo $adonsdata['id']; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="0" data-duration_value="" data-method_name="<?php echo $adonsdata['addon_service_name'] ?>" data-rate="" data-type="<?php echo "addon"; ?>">+</button>
                                     </div>
                                 </div>
                                 
@@ -472,7 +472,7 @@ elseif(isset($_POST['get_service_addons'])) {
                     }
                 }else{
                     ?>
-                    <p class="ct-sub"><?php echo $label_language_values['extra_services_not_available']; ?></p>
+                    <p class="d4m-sub"><?php echo $label_language_values['extra_services_not_available']; ?></p>
                 <?php 
                 }
                 ?>
@@ -487,14 +487,14 @@ elseif(isset($_POST['get_service_addons'])) {
     $addon_dataaa=$addons->readone();
     ?>
     <div class="addon-services-count remove_addonsss remove_addon_intensive<?php  echo $_POST['addon_id']; ?>">
-        <div class="ct-addon-extra-count fl ct-md-12 mb-15 mt-5 np">
+        <div class="d4m-addon-extra-count fl d4m-md-12 mb-15 mt-5 np">
             <h5 class="header5"><?php echo $addon_dataaa["addon_service_name"]; ?></h5>
-            <div class="ct-common-addon-list">
+            <div class="d4m-common-addon-list">
                 <?php 
                 $mmnameee = 'ad_unit'.$addon_dataaa['id'];
                 if($addon_dataaa["maxqty"] == 0){
                     ?>
-                    <span class="ct-addon-box">
+                    <span class="d4m-addon-box">
 						<a class="br-3"><?php echo $label_language_values['no_intensive']; ?></a>
 					</span>
                 <?php 
@@ -518,14 +518,14 @@ elseif(isset($_POST['get_service_addons'])) {
                             if(isset($unt_ratess['rules'])&& $unt_ratess['rules'] == 'E')
                             {
                                 ?>
-                                <span class="ct-addon-box">
-									<a href="javascript:void(0);" class="br-3 ct-addon-btn add_item_in_cart" data-rate="<?php echo ($calculation_policy == "M") ? $unt_ratess['rate']*$i : $unt_ratess['rates']; ?>" data-duration_value="<?php echo $i; ?>" data-units_id="<?php echo $addon_dataaa['id']; ?>" data-service_id="<?php echo $addon_dataaa['service_id']; ?>" data-method_id="0" data-method_name="<?php echo $addon_dataaa['addon_service_name'];?>" data-type="<?php echo "addon"; ?>" data-mnamee="<?php echo $mmnameee; ?>" ><?php echo $i; ?></a>
+                                <span class="d4m-addon-box">
+									<a href="javascript:void(0);" class="br-3 d4m-addon-btn add_item_in_cart" data-rate="<?php echo ($calculation_policy == "M") ? $unt_ratess['rate']*$i : $unt_ratess['rates']; ?>" data-duration_value="<?php echo $i; ?>" data-units_id="<?php echo $addon_dataaa['id']; ?>" data-service_id="<?php echo $addon_dataaa['service_id']; ?>" data-method_id="0" data-method_name="<?php echo $addon_dataaa['addon_service_name'];?>" data-type="<?php echo "addon"; ?>" data-mnamee="<?php echo $mmnameee; ?>" ><?php echo $i; ?></a>
 								</span>
                             <?php 
                             }else{
                                 ?>
-                                <span class="ct-addon-box">
-									<a href="javascript:void(0);" class="br-3 ct-addon-btn add_item_in_cart" data-rate="<?php echo ($calculation_policy == "M") ? $strate*$i : $strate; ?>" data-duration_value="<?php echo $i; ?>" data-units_id="<?php echo $addon_dataaa['id']; ?>" data-service_id="<?php echo $addon_dataaa['service_id']; ?>" data-method_id="0" data-method_name="<?php echo $addon_dataaa['addon_service_name'];?>" data-type="<?php echo "addon"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i; ?></a>
+                                <span class="d4m-addon-box">
+									<a href="javascript:void(0);" class="br-3 d4m-addon-btn add_item_in_cart" data-rate="<?php echo ($calculation_policy == "M") ? $strate*$i : $strate; ?>" data-duration_value="<?php echo $i; ?>" data-units_id="<?php echo $addon_dataaa['id']; ?>" data-service_id="<?php echo $addon_dataaa['service_id']; ?>" data-method_id="0" data-method_name="<?php echo $addon_dataaa['addon_service_name'];?>" data-type="<?php echo "addon"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i; ?></a>
 								</span>
                             <?php 
                             }
@@ -533,8 +533,8 @@ elseif(isset($_POST['get_service_addons'])) {
                         elseif(isset($unt_ratess['rules']) && $unt_ratess['rules'] == 'E')
                         {
                             ?>
-                            <span class="ct-addon-box">
-								<a href="javascript:void(0);" class="br-3 ct-addon-btn add_item_in_cart" data-rate="<?php echo ($calculation_policy == "M") ? $unt_ratess['rate']*$i : $unt_ratess['rate']; ?>" data-duration_value="<?php echo $i; ?>" data-units_id="<?php echo $addon_dataaa['id']; ?>" data-service_id="<?php echo $addon_dataaa['service_id']; ?>" data-method_id="0" data-method_name="<?php echo $addon_dataaa['addon_service_name'];?>" data-type="<?php echo "addon"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i; ?></a>
+                            <span class="d4m-addon-box">
+								<a href="javascript:void(0);" class="br-3 d4m-addon-btn add_item_in_cart" data-rate="<?php echo ($calculation_policy == "M") ? $unt_ratess['rate']*$i : $unt_ratess['rate']; ?>" data-duration_value="<?php echo $i; ?>" data-units_id="<?php echo $addon_dataaa['id']; ?>" data-service_id="<?php echo $addon_dataaa['service_id']; ?>" data-method_id="0" data-method_name="<?php echo $addon_dataaa['addon_service_name'];?>" data-type="<?php echo "addon"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i; ?></a>
 							</span>
                         <?php 
                         }
@@ -550,8 +550,8 @@ elseif(isset($_POST['get_service_addons'])) {
 							}
                             
                             ?>
-                            <span class="ct-addon-box">
-								<a href="javascript:void(0);" class="br-3 ct-addon-btn add_item_in_cart" data-rate="<?php echo $base_rates; ?>" data-duration_value="<?php echo $i; ?>" data-units_id="<?php echo $addon_dataaa['id']; ?>" data-service_id="<?php echo $addon_dataaa['service_id']; ?>" data-method_id="0" data-method_name="<?php echo $addon_dataaa['addon_service_name'];?>" data-type="<?php echo "addon"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i; ?></a>
+                            <span class="d4m-addon-box">
+								<a href="javascript:void(0);" class="br-3 d4m-addon-btn add_item_in_cart" data-rate="<?php echo $base_rates; ?>" data-duration_value="<?php echo $i; ?>" data-units_id="<?php echo $addon_dataaa['id']; ?>" data-service_id="<?php echo $addon_dataaa['service_id']; ?>" data-method_id="0" data-method_name="<?php echo $addon_dataaa['addon_service_name'];?>" data-type="<?php echo "addon"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i; ?></a>
 							</span>
                         <?php 
                         }
@@ -565,9 +565,9 @@ elseif(isset($_POST['get_service_addons'])) {
         </div>
     </div>
 <?php 
-} elseif(isset($_POST['select_s_m_units_design'])){
+} elseif(isset($_POST['seled4ms_m_units_design'])){
     $service_array = array("method"=>array());
-    $_SESSION['ct_cart'] = $service_array;
+    $_SESSION['d4mcart'] = $service_array;
     echo $design_values = $objservice_method_design->get_service_methods_design($_POST['service_methods_id']);
 } elseif(isset($_POST['s_m_units_maxlimit'])){
     $objservice_method_unit->services_id = $_POST['service_id'];
@@ -580,7 +580,7 @@ elseif(isset($_POST['get_service_addons'])) {
     $strate = 1;
     ?>
     <h5 class="header5"><?php if($unt_values['limit_title'] != ""){echo $unt_values['limit_title'];}else{echo $unt_values['units_title'];}?></h5>
-    <div class="ct-duration-list">
+    <div class="d4m-duration-list">
         <?php 
         for($i = 1; $i <= $unt_values['maxlimit']; $i++) {
             $objservice_method_unit->maxlimit=$i;
@@ -599,7 +599,7 @@ elseif(isset($_POST['get_service_addons'])) {
                 {
 					?>
                     <span class="duration-box">
-						<a href="javascript:void(0);" class="br-3 ct-duration-btn add_item_in_cart" data-rate="<?php echo ($calculation_policy == "M") ? $unt_ratess['rates']*$i : $unt_ratess['rates']; ?>" data-units_id="<?php echo $unt_values['id']; ?>" data-duration_value="<?php echo $i; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values['units_title'] ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i; ?></a>
+						<a href="javascript:void(0);" class="br-3 d4m-duration-btn add_item_in_cart" data-rate="<?php echo ($calculation_policy == "M") ? $unt_ratess['rates']*$i : $unt_ratess['rates']; ?>" data-units_id="<?php echo $unt_values['id']; ?>" data-duration_value="<?php echo $i; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values['units_title'] ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i; ?></a>
 					</span>
                     <?php 
                     /* print the rate given in db*/
@@ -607,7 +607,7 @@ elseif(isset($_POST['get_service_addons'])) {
                     /* print the rate of the previous one */
                     ?>
                     <span class="duration-box">
-						<a href="javascript:void(0);" class="br-3 ct-duration-btn add_item_in_cart" data-rate="<?php echo ($calculation_policy == "M") ? $strate*$i : $strate; ?>" data-units_id="<?php echo $unt_values['id']; ?>" data-duration_value="<?php echo $i; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values['units_title'] ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i; ?></a>
+						<a href="javascript:void(0);" class="br-3 d4m-duration-btn add_item_in_cart" data-rate="<?php echo ($calculation_policy == "M") ? $strate*$i : $strate; ?>" data-units_id="<?php echo $unt_values['id']; ?>" data-duration_value="<?php echo $i; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values['units_title'] ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i; ?></a>
 					</span>
                 <?php 
                 }
@@ -616,7 +616,7 @@ elseif(isset($_POST['get_service_addons'])) {
             {
                 ?>
                 <span class="duration-box">
-					<a href="javascript:void(0);" class="br-3 ct-duration-btn add_item_in_cart" data-rate="<?php echo ($calculation_policy == "M") ? $unt_ratess['rates']*$i : $unt_ratess['rates']; ?>" data-units_id="<?php echo $unt_values['id']; ?>" data-duration_value="<?php echo $i; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values['units_title'] ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i; ?></a>
+					<a href="javascript:void(0);" class="br-3 d4m-duration-btn add_item_in_cart" data-rate="<?php echo ($calculation_policy == "M") ? $unt_ratess['rates']*$i : $unt_ratess['rates']; ?>" data-units_id="<?php echo $unt_values['id']; ?>" data-duration_value="<?php echo $i; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values['units_title'] ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i; ?></a>
 				</span>
                 <?php 
             }
@@ -632,7 +632,7 @@ elseif(isset($_POST['get_service_addons'])) {
 				} 
                 ?>
 				<span class="duration-box">
-					<a href="javascript:void(0);" class="br-3 ct-duration-btn add_item_in_cart" data-rate="<?php echo $base_rates; ?>" data-units_id="<?php echo $unt_values['id']; ?>" data-duration_value="<?php echo $i; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values['units_title'] ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i; ?></a>
+					<a href="javascript:void(0);" class="br-3 d4m-duration-btn add_item_in_cart" data-rate="<?php echo $base_rates; ?>" data-units_id="<?php echo $unt_values['id']; ?>" data-duration_value="<?php echo $i; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values['units_title'] ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i; ?></a>
 				</span>
             <?php 
             }
@@ -655,7 +655,7 @@ elseif(isset($_POST['get_service_addons'])) {
         $strate = 1;
         ?>
 
-        <div class="ct-bedrooms ct-btn-group ct-md-6 ct-sm-6 mb-15 ">
+        <div class="d4m-bedrooms d4m-btn-group d4m-md-6 d4m-sm-6 mb-15 ">
             <label class="common-text-bg slc-font"> 
               <?php   if($unt_values_2['limit_title'] != ""){
                 echo $unt_values_2['limit_title'];
@@ -676,12 +676,12 @@ elseif(isset($_POST['get_service_addons'])) {
             <div class="common-selection-main">
                 <div class="selected-is select-bedrooms" data-mnamee="<?php echo $mmnameee; ?>" data-un_title="<?php echo $unt_values_2['units_title']; ?>" data-un_id="<?php echo $unt_values_2['id']; ?>" title="<?php echo $label_language_values['choose_your']." ".$unt_values_2['units_title']; ?>">
                  
-                    <div class="data-list common-fc-2" id="ct_selected_<?php  echo $unt_values_2['id']; ?>">
-                        <p class="ct-count"><?php echo $label_language_values['choose_your']." ".$unt_values_2['units_title']; ?></p>
+                    <div class="data-list common-fc-2" id="d4mselected_<?php  echo $unt_values_2['id']; ?>">
+                        <p class="d4m-count"><?php echo $label_language_values['choose_your']." ".$unt_values_2['units_title']; ?></p>
                     </div>
                 </div>
              
-                <div class="common-data-dropdown ct-<?php echo $unt_values_2['id']; ?>-dropdown">
+                <div class="common-data-dropdown d4m-<?php echo $unt_values_2['id']; ?>-dropdown">
                     <?php 
 					$hfsec=0;
 					if($unt_values_2['half_section'] == "E"){
@@ -705,16 +705,16 @@ elseif(isset($_POST['get_service_addons'])) {
                             if(isset($unt_ratess['rules']) && $unt_ratess['rules'] == 'E')
                             {
                                 ?>
-                                <div class="data-list select_bedroom add_item_in_cart" data-duration_value="<?php echo $i; ?>" data-units_id="<?php echo $unt_values_2['id']; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values_2['units_title'] ?>" data-un_title="<?php echo $unt_values_2['units_title']; ?>" data-rate="<?php echo ($calculation_policy == "M") ? $unt_ratess['rates']*$i : $unt_ratess['rates']; ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>">
-                                    <p class="ct-count"><?php echo $i." ". $unt_values_2['unit_symbol']; ?></p>
+                                <div class="data-list seled4mbedroom add_item_in_cart" data-duration_value="<?php echo $i; ?>" data-units_id="<?php echo $unt_values_2['id']; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values_2['units_title'] ?>" data-un_title="<?php echo $unt_values_2['units_title']; ?>" data-rate="<?php echo ($calculation_policy == "M") ? $unt_ratess['rates']*$i : $unt_ratess['rates']; ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>">
+                                    <p class="d4m-count"><?php echo $i." ". $unt_values_2['unit_symbol']; ?></p>
                                 </div>
                                 <?php 
                                 /* print the rate given in db */
                             }else{
                                 /* print the rate of the previous one */
                                 ?>
-                                <div class="data-list select_bedroom add_item_in_cart" data-duration_value="<?php echo $i; ?>" data-units_id="<?php echo $unt_values_2['id']; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values_2['units_title'] ?>" data-un_title="<?php echo $unt_values_2['units_title']; ?>" data-rate="<?php echo ($calculation_policy == "M") ? $strate*$i : $strate; ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>">
-                                    <p class="ct-count"><?php echo $i." ". $unt_values_2['unit_symbol']; ?></p>
+                                <div class="data-list seled4mbedroom add_item_in_cart" data-duration_value="<?php echo $i; ?>" data-units_id="<?php echo $unt_values_2['id']; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values_2['units_title'] ?>" data-un_title="<?php echo $unt_values_2['units_title']; ?>" data-rate="<?php echo ($calculation_policy == "M") ? $strate*$i : $strate; ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>">
+                                    <p class="d4m-count"><?php echo $i." ". $unt_values_2['unit_symbol']; ?></p>
                                 </div>
                             <?php 
                             }
@@ -722,8 +722,8 @@ elseif(isset($_POST['get_service_addons'])) {
                         elseif(isset($unt_ratess['rules']) && $unt_ratess['rules'] == 'E')
                         {
                             ?>
-                            <div class="data-list select_bedroom add_item_in_cart" data-duration_value="<?php echo $i; ?>" data-units_id="<?php echo $unt_values_2['id']; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values_2['units_title'] ?>" data-un_title="<?php echo $unt_values_2['units_title']; ?>" data-rate="<?php echo ($calculation_policy == "M") ? $unt_ratess['rates']*$i : $unt_ratess['rates']; ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>">
-                                <p class="ct-count"><?php echo $i." ". $unt_values_2['unit_symbol']; ?></p>
+                            <div class="data-list seled4mbedroom add_item_in_cart" data-duration_value="<?php echo $i; ?>" data-units_id="<?php echo $unt_values_2['id']; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values_2['units_title'] ?>" data-un_title="<?php echo $unt_values_2['units_title']; ?>" data-rate="<?php echo ($calculation_policy == "M") ? $unt_ratess['rates']*$i : $unt_ratess['rates']; ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>">
+                                <p class="d4m-count"><?php echo $i." ". $unt_values_2['unit_symbol']; ?></p>
                             </div>
                             <?php 
                         }
@@ -738,8 +738,8 @@ elseif(isset($_POST['get_service_addons'])) {
 								$base_rates=$unt_values_2['base_price'];
 							} 
                             ?>
-                            <div class="data-list select_bedroom add_item_in_cart" data-duration_value="<?php echo $i; ?>" data-units_id="<?php echo $unt_values_2['id']; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values_2['units_title'] ?>" data-un_title="<?php echo $unt_values_2['units_title']; ?>" data-rate="<?php echo $base_rates; ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>">
-                                <p class="ct-count"><?php echo $i." ". $unt_values_2['unit_symbol']; ?></p>
+                            <div class="data-list seled4mbedroom add_item_in_cart" data-duration_value="<?php echo $i; ?>" data-units_id="<?php echo $unt_values_2['id']; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values_2['units_title'] ?>" data-un_title="<?php echo $unt_values_2['units_title']; ?>" data-rate="<?php echo $base_rates; ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>">
+                                <p class="d4m-count"><?php echo $i." ". $unt_values_2['unit_symbol']; ?></p>
                             </div>
                         <?php 
                         }
@@ -764,9 +764,9 @@ elseif(isset($_POST['get_service_addons'])) {
         $strate = 1;
         ?>
 
-        <div class="ct-bedrooms ct-btn-group fl ct-md-12 mt-5 mb-15 np">
+        <div class="d4m-bedrooms d4m-btn-group fl d4m-md-12 mt-5 mb-15 np">
             <h5 class="header5"> <?php  if($unt_values_3['limit_title'] != ""){echo $unt_values_3['limit_title'];}else{echo $unt_values_3['units_title'];} ?></h5>
-            <div class="ct-bedroom-list" >
+            <div class="d4m-bedroom-list" >
                 <?php 
 				if(isset($unt_values_3['half_section']) && $unt_values_3['half_section'] == 'E'){
 					$plus_value = 0.5;
@@ -792,14 +792,14 @@ elseif(isset($_POST['get_service_addons'])) {
                         if(isset($unt_ratess['rules']) && $unt_ratess['rules'] == 'E')
                         {
                             ?>
-                            <span class="ct-box bedroom-box">
-								<a href="javascript:void(0);" class="br-3 ct-bedroom-btn select_m_u_btn u_<?php  echo $unt_values_3['id']; ?>_btn add_item_in_cart" data-units_id="<?php echo $unt_values_3['id']; ?>" data-duration_value="<?php echo $i; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values_3['units_title'] ?>" data-un_title="<?php echo $unt_values_3['units_title']; ?>" data-rate="<?php echo ($calculation_policy == "M") ? $unt_ratess['rates']*$i : $unt_ratess['rates']; ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i." ". $unt_values_3['unit_symbol']; ?></a>
+                            <span class="d4m-box bedroom-box">
+								<a href="javascript:void(0);" class="br-3 d4m-bedroom-btn seled4mm_u_btn u_<?php  echo $unt_values_3['id']; ?>_btn add_item_in_cart" data-units_id="<?php echo $unt_values_3['id']; ?>" data-duration_value="<?php echo $i; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values_3['units_title'] ?>" data-un_title="<?php echo $unt_values_3['units_title']; ?>" data-rate="<?php echo ($calculation_policy == "M") ? $unt_ratess['rates']*$i : $unt_ratess['rates']; ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i." ". $unt_values_3['unit_symbol']; ?></a>
 							</span>
                         <?php 
                         }else{
                             ?>
-                            <span class="ct-box bedroom-box">
-								<a href="javascript:void(0);" class="br-3 ct-bedroom-btn select_m_u_btn u_<?php  echo $unt_values_3['id']; ?>_btn add_item_in_cart" data-units_id="<?php echo $unt_values_3['id']; ?>" data-duration_value="<?php echo $i; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values_3['units_title'] ?>" data-un_title="<?php echo $unt_values_3['units_title']; ?>" data-rate="<?php echo ($calculation_policy == "M") ? $strate*$i : $strate; ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i." ". $unt_values_3['unit_symbol']; ?></a>
+                            <span class="d4m-box bedroom-box">
+								<a href="javascript:void(0);" class="br-3 d4m-bedroom-btn seled4mm_u_btn u_<?php  echo $unt_values_3['id']; ?>_btn add_item_in_cart" data-units_id="<?php echo $unt_values_3['id']; ?>" data-duration_value="<?php echo $i; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values_3['units_title'] ?>" data-un_title="<?php echo $unt_values_3['units_title']; ?>" data-rate="<?php echo ($calculation_policy == "M") ? $strate*$i : $strate; ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i." ". $unt_values_3['unit_symbol']; ?></a>
 							</span>
                         <?php 
                         }
@@ -810,8 +810,8 @@ elseif(isset($_POST['get_service_addons'])) {
 											
 										
                         ?>
-                        <span class="ct-box bedroom-box">
-							<a href="javascript:void(0);" class="br-3 ct-bedroom-btn select_m_u_btn u_<?php  echo $unt_values_3['id']; ?>_btn add_item_in_cart" data-units_id="<?php echo $unt_values_3['id']; ?>" data-duration_value="<?php echo $i; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values_3['units_title'] ?>" data-un_title="<?php echo $unt_values_3['units_title']; ?>" data-rate="<?php echo ($calculation_policy == "M") ? $unt_ratess['rates']*$i : $unt_ratess['rates']; ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i." ". $unt_values_3['unit_symbol']; ?></a>
+                        <span class="d4m-box bedroom-box">
+							<a href="javascript:void(0);" class="br-3 d4m-bedroom-btn seled4mm_u_btn u_<?php  echo $unt_values_3['id']; ?>_btn add_item_in_cart" data-units_id="<?php echo $unt_values_3['id']; ?>" data-duration_value="<?php echo $i; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values_3['units_title'] ?>" data-un_title="<?php echo $unt_values_3['units_title']; ?>" data-rate="<?php echo ($calculation_policy == "M") ? $unt_ratess['rates']*$i : $unt_ratess['rates']; ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i." ". $unt_values_3['unit_symbol']; ?></a>
 						</span>
                     <?php 
                     }
@@ -838,8 +838,8 @@ elseif(isset($_POST['get_service_addons'])) {
 							}
 						}
                         ?>
-                        <span class="ct-box bedroom-box">
-							<a href="javascript:void(0);" class="br-3 ct-bedroom-btn select_m_u_btn u_<?php  echo $unt_values_3['id']; ?>_btn add_item_in_cart" data-units_id="<?php echo $unt_values_3['id']; ?>" data-duration_value="<?php echo $i; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values_3['units_title'] ?>" data-un_title="<?php echo $unt_values_3['units_title']; ?>" data-rate="<?php echo $base_rates; ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i." ". $unt_values_3['unit_symbol']; ?></a>
+                        <span class="d4m-box bedroom-box">
+							<a href="javascript:void(0);" class="br-3 d4m-bedroom-btn seled4mm_u_btn u_<?php  echo $unt_values_3['id']; ?>_btn add_item_in_cart" data-units_id="<?php echo $unt_values_3['id']; ?>" data-duration_value="<?php echo $i; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" data-method_name="<?php echo $unt_values_3['units_title'] ?>" data-un_title="<?php echo $unt_values_3['units_title']; ?>" data-rate="<?php echo $base_rates; ?>" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>"><?php echo $i." ". $unt_values_3['unit_symbol']; ?></a>
 						</span>
                     <?php 
                     }
@@ -874,14 +874,14 @@ elseif(isset($_POST['get_service_addons'])) {
 			$hfsec=1;
 		}
         ?>
-        <div class="ct-bedrooms ct-btn-group ct-md-6 ct-sm-6">
+        <div class="d4m-bedrooms d4m-btn-group d4m-md-6 d4m-sm-6">
             <label> <?php  if($u_value_4['limit_title'] != ""){echo $u_value_4['limit_title'];}else{echo $u_value_4['units_title'];} ?></label>
             <?php 
             $mmnameee = 'mt_unit'.$u_value_4['id'];
             ?>
-            <button id="minus-addon-<?php echo $u_value_4['id']; ?>" data-ids="<?php echo $u_value_4['id']; ?>" class="minuss ct-btn-left ct-small-btn" data-units_id="<?php echo $u_value_4['id']; ?>" data-db-qty="<?php echo $u_value_4["maxlimit"]; ?>" data-db-minqty="<?php echo $u_value_4["minlimit"]; ?>" data-duration_value="" data-method_name="<?php echo $u_value_4['units_title'] ?>" data-hfsec="<?php echo $hfsec; ?>" type="button" data-service_id="<?php echo $_POST['service_id']; ?>" data-rate="" data-method_id="<?php echo $_POST['method_id']; ?>" data-type="<?php echo "method_units"; ?>" data-unit_symbol="<?php   echo $u_value_4['unit_symbol']; ?>" data-mnamee="<?php echo $mmnameee; ?>">-</button>
-            <input id="qty<?php  echo $u_value_4['id']; ?>" type="text" value="0<?php   echo " ".$u_value_4['unit_symbol']; ?>" class="qty<?php  echo $u_value_4['id']; ?> ct-btn-text data_qtyrate" data-rate="<?php echo $uniitt_rate; ?>" />
-            <button id="add-addon-<?php echo $u_value_4['id']; ?>" data-units_id="<?php echo $u_value_4['id']; ?>"  data-ids="<?php echo $u_value_4['id']; ?>" data-db-qty="<?php echo $u_value_4["maxlimit"]; ?>" data-db-minqty="<?php echo $u_value_4["minlimit"]; ?>" data-hfsec="<?php echo $hfsec; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" class="addd ct-btn-right float-right ct-small-btn" data-duration_value="" data-method_name="<?php echo $u_value_4['units_title'] ?>" data-unit_symbol="<?php   echo $u_value_4['unit_symbol']; ?>" data-rate="" type="button" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>">+</button>
+            <button id="minus-addon-<?php echo $u_value_4['id']; ?>" data-ids="<?php echo $u_value_4['id']; ?>" class="minuss d4m-btn-left d4m-small-btn" data-units_id="<?php echo $u_value_4['id']; ?>" data-db-qty="<?php echo $u_value_4["maxlimit"]; ?>" data-db-minqty="<?php echo $u_value_4["minlimit"]; ?>" data-duration_value="" data-method_name="<?php echo $u_value_4['units_title'] ?>" data-hfsec="<?php echo $hfsec; ?>" type="button" data-service_id="<?php echo $_POST['service_id']; ?>" data-rate="" data-method_id="<?php echo $_POST['method_id']; ?>" data-type="<?php echo "method_units"; ?>" data-unit_symbol="<?php   echo $u_value_4['unit_symbol']; ?>" data-mnamee="<?php echo $mmnameee; ?>">-</button>
+            <input id="qty<?php  echo $u_value_4['id']; ?>" type="text" value="0<?php   echo " ".$u_value_4['unit_symbol']; ?>" class="qty<?php  echo $u_value_4['id']; ?> d4m-btn-text data_qtyrate" data-rate="<?php echo $uniitt_rate; ?>" />
+            <button id="add-addon-<?php echo $u_value_4['id']; ?>" data-units_id="<?php echo $u_value_4['id']; ?>"  data-ids="<?php echo $u_value_4['id']; ?>" data-db-qty="<?php echo $u_value_4["maxlimit"]; ?>" data-db-minqty="<?php echo $u_value_4["minlimit"]; ?>" data-hfsec="<?php echo $hfsec; ?>" data-service_id="<?php echo $_POST['service_id']; ?>" data-method_id="<?php echo $_POST['method_id']; ?>" class="addd d4m-btn-right float-right d4m-small-btn" data-duration_value="" data-method_name="<?php echo $u_value_4['units_title'] ?>" data-unit_symbol="<?php   echo $u_value_4['unit_symbol']; ?>" data-rate="" type="button" data-type="<?php echo "method_units"; ?>" data-mnamee="<?php echo $mmnameee; ?>">+</button>
         </div>
     <?php 
     }
@@ -902,7 +902,7 @@ elseif(isset($_POST['s_m_units_maxlimit_4_ratesss'])){
     $fg= 0;
     $strate = 1;
     $finalvalue=0;
-	$calculation_policy = $settings->get_option("ct_calculation_policy");
+	$calculation_policy = $settings->get_option("d4mcalculation_policy");
     for($i = $hfsec; $i <= $_POST['qty_vals']; $i+=$hfsec) {
         $objservice_method_unit->maxlimit=$i;
         $objservice_method_unit->units_id=$_POST['units_id'];
@@ -964,7 +964,7 @@ elseif(isset($_POST['s_m_units_maxlimit_4_ratesss'])){
     $fg= 0;
     $strate = 1;
     $finalvalue=0;
-	$calculation_policy = $settings->get_option("ct_calculation_policy");
+	$calculation_policy = $settings->get_option("d4mcalculation_policy");
     for($i = 1; $i <= $_POST['qty_vals']; $i++) {
         $addons_rates->maxlimit=$i;
         $addons_rates->addon_service_id=$addon_dataaa['id'];
@@ -1040,18 +1040,18 @@ if(isset($_POST['get_search_staff_detail'])){
 			$staff_image_mb = "../assets/images/user.png";
 		}
 		
-		echo '<li class="ct-sm-6 ct-md-4 ct-lg-3 ct-xs-12 remove_provider_class provider_select" data-id="'.$value.'">
-				<input type="radio" name="provider-radio" data-staff_id ="'.$value.'" id="ct-provider-'.$value.'" class="provider_disable">
-							<label class="ct-provider border-c img-circle" for="ct-provider-'.$value.'">
-							<div class="ct-provider-img">
-								<img class="ct-image img-circle ct-mb-show" src="'.$staff_image.'">
-								<img class="ct-image img-circle ct-mb-hidden" src="'.$staff_image_mb.'">
+		echo '<li class="d4m-sm-6 d4m-md-4 d4m-lg-3 d4m-xs-12 remove_provider_class provider_select" data-id="'.$value.'">
+				<input type="radio" name="provider-radio" data-staff_id ="'.$value.'" id="d4m-provider-'.$value.'" class="provider_disable">
+							<label class="d4m-provider border-c img-circle" for="d4m-provider-'.$value.'">
+							<div class="d4m-provider-img">
+								<img class="d4m-image img-circle d4m-mb-show" src="'.$staff_image.'">
+								<img class="d4m-image img-circle d4m-mb-hidden" src="'.$staff_image_mb.'">
 							</div>
 
 							</label>
 
 							<div class="provider-name fl ta-c">'.$postal_code_staff_detail[0].'</div>';
-		if($settings->get_option("ct_star_show_on_front") == "Y"){
+		if($settings->get_option("d4mstar_show_on_front") == "Y"){
 			$objrating_review->staff_id = $value;
 			$rating_details = $objrating_review->readall_by_staff_id();
 			$rating_count = 0;
@@ -1087,7 +1087,7 @@ if(isset($_POST['get_search_staff_detail'])){
 	<?php     
 }
 
-if(isset($_POST['select_language'])){
+if(isset($_POST['seled4mlanguage'])){
 	$_SESSION['current_lang'] = $_POST['set_language'];
 }
 /**item remove from cart**/
@@ -1096,25 +1096,25 @@ if(isset($_POST['cart_item_remove'])){
 	$json_array = array();
 	$m_name = $_POST['m_name'];
 	$final_duration_value = 0;
-	for ($i = 0; $i < (count((array)$_SESSION['ct_cart']['method'])); $i++)
+	for ($i = 0; $i < (count((array)$_SESSION['d4mcart']['method'])); $i++)
 	{
 		$method_type = '';
-		if ($_SESSION['ct_cart']['method'][$i]['units_id'] == $_POST['cart_unit_id']  && $_SESSION['ct_cart']['method'][$i]['method_type'] == $m_name)
+		if ($_SESSION['d4mcart']['method'][$i]['units_id'] == $_POST['cart_unit_id']  && $_SESSION['d4mcart']['method'][$i]['method_type'] == $m_name)
 		{
-			unset($_SESSION['ct_cart']["method"][$i]);
+			unset($_SESSION['d4mcart']["method"][$i]);
 		}
 	}
-	$_SESSION['ct_cart']['method'] = array_values($_SESSION['ct_cart']['method']);
-	if(sizeof((array)$_SESSION['ct_cart']['method']) == 0){
+	$_SESSION['d4mcart']['method'] = array_values($_SESSION['d4mcart']['method']);
+	if(sizeof((array)$_SESSION['d4mcart']['method']) == 0){
 		$json_array['status'] = "empty calculation";
 	}else{
 	/**calculation start**/
 	$c_rates = 0;
 	$final_duration_value = 0;
-	for ($i = 0; $i < (count((array)$_SESSION['ct_cart']['method'])); $i++)
+	for ($i = 0; $i < (count((array)$_SESSION['d4mcart']['method'])); $i++)
 	{
-		$c_rates = ($c_rates + $_SESSION['ct_cart']['method'][$i]['s_m_rate']);
-		$final_duration_value = ($final_duration_value + $_SESSION['ct_cart']['method'][$i]['duration']);
+		$c_rates = ($c_rates + $_SESSION['d4mcart']['method'][$i]['s_m_rate']);
+		$final_duration_value = ($final_duration_value + $_SESSION['d4mcart']['method'][$i]['duration']);
 	}
 	
 	$hours = intval($final_duration_value/60);
@@ -1148,17 +1148,17 @@ if(isset($_POST['cart_item_remove'])){
 	$total = $c_rates;
 	$_SESSION['freq_dis_amount'] = $freqdis_amount;
 	$final_subtotal = $total - $_SESSION['freq_dis_amount'];
-	if ($settings->get_option('ct_tax_vat_status') == 'Y')
+	if ($settings->get_option('d4mtax_vat_status') == 'Y')
 	{
-	if ($settings->get_option('ct_tax_vat_type') == 'F')
+	if ($settings->get_option('d4mtax_vat_type') == 'F')
 		{
-		$flatvalue = $settings->get_option('ct_tax_vat_value');
+		$flatvalue = $settings->get_option('d4mtax_vat_value');
 		$taxamount = $flatvalue;
 		}
 	  else
-	if ($settings->get_option('ct_tax_vat_type') == 'P')
+	if ($settings->get_option('d4mtax_vat_type') == 'P')
 		{
-		$percent = $settings->get_option('ct_tax_vat_value');
+		$percent = $settings->get_option('d4mtax_vat_value');
 		$percentage_value = $percent / 100;
 		$taxamount = $percentage_value * $final_subtotal;
 		}
@@ -1168,18 +1168,18 @@ if(isset($_POST['cart_item_remove'])){
 	$taxamount = 0;
 	}
 
-	if ($settings->get_option('ct_partial_deposit_status') == 'Y')
+	if ($settings->get_option('d4mpartial_deposit_status') == 'Y')
 	{
 	$grand_total = $final_subtotal + $taxamount;
-	if ($settings->get_option('ct_partial_type') == 'F')
+	if ($settings->get_option('d4mpartial_type') == 'F')
 	{
-	$p_deposite_amount = $settings->get_option('ct_partial_deposit_amount');
+	$p_deposite_amount = $settings->get_option('d4mpartial_deposit_amount');
 	$partial_amount = $p_deposite_amount;
 	$remain_amount = $grand_total - $partial_amount;
 	}
-	elseif ($settings->get_option('ct_partial_type') == 'P')
+	elseif ($settings->get_option('d4mpartial_type') == 'P')
 	{
-	$p_deposite_amount = $settings->get_option('ct_partial_deposit_amount');
+	$p_deposite_amount = $settings->get_option('d4mpartial_deposit_amount');
 	$percentages = $p_deposite_amount / 100;
 	$partial_amount = $grand_total * $percentages;
 	$remain_amount = $grand_total - $partial_amount;
@@ -1197,13 +1197,13 @@ if(isset($_POST['cart_item_remove'])){
 	}
 	
 	$json_array['status'] = "cart not empty";
-	$json_array['cart_discount'] = $general->ct_price_format(0, $symbol_position, $decimal);
-	$json_array['partial_amount'] = $general->ct_price_format($partial_amount, $symbol_position, $decimal);
-	$json_array['remain_amount'] = $general->ct_price_format($remain_amount, $symbol_position, $decimal);
-	$json_array['frequent_discount'] = '-' . $general->ct_price_format($_SESSION['freq_dis_amount'], $symbol_position, $decimal);
-	$json_array['cart_tax'] = $general->ct_price_format($taxamount, $symbol_position, $decimal);
-	$json_array['total_amount'] = $general->ct_price_format(($final_subtotal + $taxamount) , $symbol_position, $decimal);
-	$json_array['cart_sub_total'] = $general->ct_price_format($total, $symbol_position, $decimal);
+	$json_array['cart_discount'] = $general->d4mprice_format(0, $symbol_position, $decimal);
+	$json_array['partial_amount'] = $general->d4mprice_format($partial_amount, $symbol_position, $decimal);
+	$json_array['remain_amount'] = $general->d4mprice_format($remain_amount, $symbol_position, $decimal);
+	$json_array['frequent_discount'] = '-' . $general->d4mprice_format($_SESSION['freq_dis_amount'], $symbol_position, $decimal);
+	$json_array['cart_tax'] = $general->d4mprice_format($taxamount, $symbol_position, $decimal);
+	$json_array['total_amount'] = $general->d4mprice_format(($final_subtotal + $taxamount) , $symbol_position, $decimal);
+	$json_array['cart_sub_total'] = $general->d4mprice_format($total, $symbol_position, $decimal);
 	/* calculation end */
 	}
 	echo json_encode($json_array);

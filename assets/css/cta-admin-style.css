@@ -2,7 +2,7 @@
 
 do4me - Admin style Main
 
-Version : 7.1
+Version : 7.2
 
 */
 
@@ -109,7 +109,7 @@ body {
     border: 0 none;
 
     margin: 0;
-
+		/* z-index: 999999; */
 }
 
 
@@ -117,6 +117,7 @@ body {
 #cta #cta-main-navigation .navbar-fixed-top.cta-admin-nav {
 
     top: 50px;
+	/* 	z-index: 99999; */
 
 }
 
@@ -527,7 +528,7 @@ body {
 
 
 
-#cta #ct-notification-top {
+#cta #d4m-notification-top {
 
     display: inline-block;
 
@@ -549,9 +550,9 @@ body {
 
 
 
-#cta #ct-notifications i.fa-angle-down,
+#cta #d4m-notifications i.fa-angle-down,
 
-#cta #ct-user-info i.fa-angle-down {
+#cta #d4m-user-info i.fa-angle-down {
 
     position: relative;
 
@@ -693,7 +694,7 @@ body {
 
 
 
-#cta .d4m-notification-main .notification-header #ct-close-notifications {
+#cta .d4m-notification-main .notification-header #d4m-close-notifications {
 
     position: relative;
 
@@ -715,7 +716,7 @@ body {
 
 /*
 
-#cta .d4m-notification-main .notification-header #ct-close-notifications i:hover{
+#cta .d4m-notification-main .notification-header #d4m-close-notifications i:hover{
 
     transform:rotate(360deg);
 
@@ -1393,11 +1394,11 @@ body {
 
 
 
-#cta a#ct-notifications i.icon-bell,
+#cta a#d4m-notifications i.icon-bell,
 
 #cta i.icon-user,
 
-#cta a#ct-notifications .fa-angle-down {
+#cta a#d4m-notifications .fa-angle-down {
 
     font-size: 18px;
 
@@ -1555,11 +1556,11 @@ body {
 
 #cta #cta-payments.panel .panel-default,
 
-#cta #ct-settings.panel,
+#cta #d4m-settings.panel,
 
-#cta #ct-settings .d4m-setting-details div .panel,
+#cta #d4m-settings .d4m-setting-details div .panel,
 
-#cta #ct-settings .d4m-setting-details div .panel-default {
+#cta #d4m-settings .d4m-setting-details div .panel-default {
 
     box-shadow: unset;
 
@@ -2227,7 +2228,7 @@ body {
 
 #cta .d4m-header .d4m-delete-appointment-cal-popup,
 
-#cta #booking-details #ct-delete-appointment,
+#cta #booking-details #d4m-delete-appointment,
 
 #cta #booking-details-dashboard .d4m-delete-appointment-cal-popup,
 
@@ -2263,9 +2264,9 @@ body {
 
 
 
-#cta .d4m-header #ct-reject-appointment-cal-popup,
+#cta .d4m-header #d4m-reject-appointment-cal-popup,
 
-#cta #booking-details #ct-reject-appointment,
+#cta #booking-details #d4m-reject-appointment,
 
 #cta #booking-details-calendar .book_rejct,
 
@@ -2349,19 +2350,19 @@ body {
 
 
 
-#cta #ct-calendar-all{
+#cta #d4m-calendar-all{
 
 	background: #ffffff;
 
 }
 
-#cta #ct-calendar-all .d4m-legends-panel-body{
+#cta #d4m-calendar-all .d4m-legends-panel-body{
 
 	padding: 5px;
 
 }
 
-#cta #ct-calendar-all .d4m-booking-calendar {
+#cta #d4m-calendar-all .d4m-booking-calendar {
 
     float: none !important;
 
@@ -2377,7 +2378,7 @@ body {
 
 
 
-#cta #ct-calendar-all .d4m-legends-main {
+#cta #d4m-calendar-all .d4m-legends-main {
 
     float: none;
 
@@ -2392,6 +2393,7 @@ body {
 #cta .popover {
 
     min-width: 200px;
+		z-index: 1;
 
 }
 
@@ -2465,7 +2467,7 @@ body {
 
 
 
-#cta #ct-calendar-all .d4m-legends-main .d4m-legends-inner ul li i.fa {
+#cta #d4m-calendar-all .d4m-legends-main .d4m-legends-inner ul li i.fa {
 
     font-size: 16px;
 
@@ -2473,7 +2475,7 @@ body {
 
 
 
-#cta #ct-calendar-all .d4m-legends-main .d4m-legends-inner ul li {
+#cta #d4m-calendar-all .d4m-legends-main .d4m-legends-inner ul li {
 
     font-size: 14px;
 
@@ -2763,7 +2765,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 }
 
-#cta #ct-settings .d4m-setting-details .tab-content > .active {
+#cta #d4m-settings .d4m-setting-details .tab-content > .active {
 
     overflow-x: hidden;
 
@@ -2869,7 +2871,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 #cta h6.d4m-customer-details-hr,
 
-#cta #ct-calendar-all h6.d4m-customer-details-hr {
+#cta #d4m-calendar-all h6.d4m-customer-details-hr {
 
     font-size: 15px;
 
@@ -2879,7 +2881,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 #cta .d4m-header ul.d4m-cal-booking-details hr,
 
-#cta #ct-calendar-all ul.d4m-cal-booking-details hr {
+#cta #d4m-calendar-all ul.d4m-cal-booking-details hr {
 
     margin-top: 10px;
 
@@ -2889,7 +2891,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 #cta .d4m-header ul.d4m-cal-booking-details li,
 
-#cta #ct-calendar-all ul.d4m-cal-booking-details li {
+#cta #d4m-calendar-all ul.d4m-cal-booking-details li {
 
     padding: 1px 0px;
 
@@ -2909,7 +2911,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 #cta .d4m-header ul.d4m-cal-booking-details li,
 
-#cta #ct-calendar-all ul.d4m-cal-booking-details li{
+#cta #d4m-calendar-all ul.d4m-cal-booking-details li{
 
     width: 100% !important;
 
@@ -2917,7 +2919,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 }
 
-/*#cta #ct-calendar-all ul.d4m-cal-booking-details li label{
+/*#cta #d4m-calendar-all ul.d4m-cal-booking-details li label{
 
     width: 30% !important;
 
@@ -2925,13 +2927,13 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 }*/
 
-#cta #ct-calendar-all ul.d4m-cal-booking-details li span.span-scroll{
+#cta #d4m-calendar-all ul.d4m-cal-booking-details li span.span-scroll{
 
     width: 70% !important;
 
 }
 
-#cta #ct-calendar-all ul.d4m-cal-booking-details li label.assign-app-staff,
+#cta #d4m-calendar-all ul.d4m-cal-booking-details li label.assign-app-staff,
 
 #cta .d4m-header ul.d4m-cal-booking-details li label.assign-app-staff {
 
@@ -2941,7 +2943,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 }
 
-#cta #ct-calendar-all ul.d4m-cal-booking-details li span.span-scroll-staff{
+#cta #d4m-calendar-all ul.d4m-cal-booking-details li span.span-scroll-staff{
 
     width: 70% !important;
 
@@ -2949,7 +2951,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 #cta .d4m-header ul.d4m-cal-booking-details li.d4m-second-child,
 
-#cta #ct-calendar-all ul.d4m-cal-booking-details li.d4m-second-child {
+#cta #d4m-calendar-all ul.d4m-cal-booking-details li.d4m-second-child {
 
 	top: -7px;
 
@@ -2963,7 +2965,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 #cta .d4m-header ul.d4m-cal-booking-details li.d4m-second-child span,
 
-#cta #ct-calendar-all ul.d4m-cal-booking-details li.d4m-second-child span{
+#cta #d4m-calendar-all ul.d4m-cal-booking-details li.d4m-second-child span{
 
 	position: relative;
 
@@ -2993,7 +2995,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 #cta .d4m-header ul.d4m-cal-booking-details li label,
 
-#cta #ct-calendar-all ul.d4m-cal-booking-details li label {
+#cta #d4m-calendar-all ul.d4m-cal-booking-details li label {
 
 	width: 30%;
 
@@ -3017,7 +3019,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 #cta .d4m-header ul.d4m-cal-booking-details li.d4m-second-child span,
 
-#cta #ct-calendar-all ul.d4m-cal-booking-details li.d4m-second-child span {
+#cta #d4m-calendar-all ul.d4m-cal-booking-details li.d4m-second-child span {
 
   width: unset !important;
 
@@ -3047,7 +3049,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 #cta .d4m-header ul.d4m-cal-booking-details li span.span-scroll,
 
-#cta #ct-calendar-all ul.d4m-cal-booking-details li span.span-scroll {
+#cta #d4m-calendar-all ul.d4m-cal-booking-details li span.span-scroll {
 
 	float: left;
 
@@ -3067,7 +3069,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 #cta .d4m-header ul.d4m-cal-booking-details li span.span-scroll-staff,
 
-#cta #ct-calendar-all ul.d4m-cal-booking-details li span.span-scroll-staff {
+#cta #d4m-calendar-all ul.d4m-cal-booking-details li span.span-scroll-staff {
 
     float: left;
 
@@ -3083,7 +3085,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 #cta .d4m-header .d4m-booking-status,
 
-#cta #ct-calendar-all .d4m-booking-status {
+#cta #d4m-calendar-all .d4m-booking-status {
 
     position: relative;
 
@@ -3099,7 +3101,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 #cta .d4m-header .d4m-curr-status hr#hr,
 
-#cta #ct-calendar-all .d4m-curr-status hr#hr {
+#cta #d4m-calendar-all .d4m-curr-status hr#hr {
 
     margin: 0px 0px 3px;
 
@@ -3109,7 +3111,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 #cta .d4m-header .d4m-booking-status,
 
-#cta #ct-calendar-all .d4m-booking-status {
+#cta #d4m-calendar-all .d4m-booking-status {
 
     font-size: 15px;
 
@@ -3129,7 +3131,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 #cta .d4m-header .d4m-booking-status em,
 
-#cta #ct-calendar-all .d4m-booking-status em {
+#cta #d4m-calendar-all .d4m-booking-status em {
 
 	font-style: normal;
 
@@ -3151,7 +3153,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 #cta .d4m-header .d4m-booking-status span.badge,
 
-#cta #ct-calendar-all .d4m-booking-status span.badge {
+#cta #d4m-calendar-all .d4m-booking-status span.badge {
 
     display: inline-block;
 
@@ -3199,7 +3201,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 /****  Staff style ***/
 
-#cta #ct-add-new-staff .staff-create-btn{margin-right: 5px;}
+#cta #d4m-add-new-staff .staff-create-btn{margin-right: 5px;}
 
 #cta #cta-staff-panel.tab-content {
 
@@ -3233,7 +3235,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 
 
-#cta #cta-staff-panel #ct-add-new-staff {
+#cta #cta-staff-panel #d4m-add-new-staff {
 
     position: relative;
 
@@ -3728,7 +3730,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 
 
-#cta #ct-staff-dashboard table tr td,
+#cta #d4m-staff-dashboard table tr td,
 
 #cta #cta-staff-panel table tr td {
 
@@ -3738,7 +3740,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 }
 
-#cta #ct-staff-dashboard table.offdaystable tr td.d4m-calendar-box{
+#cta #d4m-staff-dashboard table.offdaystable tr td.d4m-calendar-box{
 
 	min-height: 300px;
 
@@ -3814,7 +3816,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 
 
-#cta .member-services ul#ct-staff-breaks li.row {
+#cta .member-services ul#d4m-staff-breaks li.row {
 
     line-height: 37px;
 
@@ -3824,7 +3826,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 
 
-#cta .member-services .d4m-staff-price-rules ul#ct-staff-price span.d4m-day-name {
+#cta .member-services .d4m-staff-price-rules ul#d4m-staff-price span.d4m-day-name {
 
     font-size: 16px;
 
@@ -3834,7 +3836,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 
 
-#cta .member-services .d4m-staff-price-rules ul#ct-staff-price li.row {
+#cta .member-services .d4m-staff-price-rules ul#d4m-staff-price li.row {
 
     line-height: 37px;
 
@@ -3880,7 +3882,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 
 
-#cta .member-services .d4m-staff-price-rules li#ct-add-price-row {
+#cta .member-services .d4m-staff-price-rules li#d4m-add-price-row {
 
     display: none;
 
@@ -3920,7 +3922,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 
 
-#cta .member-availabilty ul#ct-staff-timing li.active {
+#cta .member-availabilty ul#d4m-staff-timing li.active {
 
     float: left;
 
@@ -4040,7 +4042,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 
 
-#cta .member-addbreaks ul#ct-staff-breaks li.active {
+#cta .member-addbreaks ul#d4m-staff-breaks li.active {
 
     float: left;
 
@@ -4066,7 +4068,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 
 
-#cta .member-addbreaks ul#ct-staff-breaks li .list-unstyled li {
+#cta .member-addbreaks ul#d4m-staff-breaks li .list-unstyled li {
 
     margin-bottom: 10px;
 
@@ -4084,7 +4086,7 @@ td.fc-widget-content hr.fc-divider.fc-widget-header {
 
 
 
-#cta .member-addbreaks ul#ct-staff-breaks span.d4m-day-name {
+#cta .member-addbreaks ul#d4m-staff-breaks span.d4m-day-name {
 
     font-size: 16px;
 
@@ -4282,7 +4284,7 @@ tr.details td.details-control {
 
 #cta #cta-clean-services-panel .panel-body,
 
-#cta #ct-settings #recurrence-booking .panel-body {
+#cta #d4m-settings #recurrence-booking .panel-body {
 
     background: #fff;
 
@@ -4294,9 +4296,9 @@ tr.details td.details-control {
 
 #cta #cta-clean-services-panel .panel-default .panel-body,
 
-#cta #ct-settings #recurrence-booking .panel-default .panel-body,
+#cta #d4m-settings #recurrence-booking .panel-default .panel-body,
 
-#cta #ct-settings #labels ul.d4m-labels-lang-ul .panel-default .panel-body {
+#cta #d4m-settings #labels ul.d4m-labels-lang-ul .panel-default .panel-body {
 
     padding: 10px;
 
@@ -4316,11 +4318,11 @@ tr.details td.details-control {
 
 #cta #cta-clean-services-panel .panel-heading,
 
-#cta #ct-settings #recurrence-booking .panel-heading,
+#cta #d4m-settings #recurrence-booking .panel-heading,
 
-#cta #ct-settings #labels ul.d4m-labels-lang-ul .panel-heading,
+#cta #d4m-settings #labels ul.d4m-labels-lang-ul .panel-heading,
 
-#cta #ct-settings #manageable-form-fields ul.d4m-labels-error-ul li.d4m-labels-error-listing .panel-heading{
+#cta #d4m-settings #manageable-form-fields ul.d4m-labels-error-ul li.d4m-labels-error-listing .panel-heading{
 
     padding: 5px 10px;
 
@@ -4334,15 +4336,15 @@ tr.details td.details-control {
 
 #cta #cta-clean-services-panel .panel-default,
 
-#cta #ct-settings #recurrence-booking .panel-heading,
+#cta #d4m-settings #recurrence-booking .panel-heading,
 
-#cta #ct-settings #recurrence-booking .panel,
+#cta #d4m-settings #recurrence-booking .panel,
 
-#cta #ct-settings #recurrence-booking .panel-default,
+#cta #d4m-settings #recurrence-booking .panel-default,
 
-#cta #ct-settings #labels ul.d4m-labels-lang-ul .panel-heading,
+#cta #d4m-settings #labels ul.d4m-labels-lang-ul .panel-heading,
 
-#cta #ct-settings #manageable-form-fields ul.d4m-labels-error-ul li.d4m-labels-error-listing .panel-heading {
+#cta #d4m-settings #manageable-form-fields ul.d4m-labels-error-ul li.d4m-labels-error-listing .panel-heading {
 
     border-radius: 2px;
 
@@ -4442,7 +4444,7 @@ tr.details td.details-control {
 
 #cta #cta-clean-services-panel .d4m-clean-service-details.col-lg-9,
 
-#cta #ct-settings .d4m-setting-details.col-lg-9 {
+#cta #d4m-settings .d4m-setting-details.col-lg-9 {
 
     padding: 0px !important;
 
@@ -4678,7 +4680,7 @@ tr.details td.details-control {
 
 #cta #cta-clean-services-panel table tr td,
 
-#cta #ct-settings #recurrence-booking table tr td {
+#cta #d4m-settings #recurrence-booking table tr td {
 
     padding: 5px;
 
@@ -4692,11 +4694,11 @@ tr.details td.details-control {
 
 
 
-#cta #ct-settings #manageable-form-fields ul.d4m-labels-error-ul li.d4m-labels-error-listing.panel,
+#cta #d4m-settings #manageable-form-fields ul.d4m-labels-error-ul li.d4m-labels-error-listing.panel,
 
-#cta #ct-settings #labels ul.d4m-labels-lang-ul li.d4m-labels-lang-listing.panel,
+#cta #d4m-settings #labels ul.d4m-labels-lang-ul li.d4m-labels-lang-listing.panel,
 
-#cta #ct-settings #recurrence-booking .d4m-frequently-discount-panel.panel {
+#cta #d4m-settings #recurrence-booking .d4m-frequently-discount-panel.panel {
 
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05) !important;
 
@@ -4708,11 +4710,11 @@ tr.details td.details-control {
 
 }
 
-#cta #ct-settings #manageable-form-fields ul.d4m-labels-error-ul li.d4m-labels-error-listing.panel-default,
+#cta #d4m-settings #manageable-form-fields ul.d4m-labels-error-ul li.d4m-labels-error-listing.panel-default,
 
-#cta #ct-settings #labels ul.d4m-labels-lang-ul li.d4m-labels-lang-listing.panel-default,
+#cta #d4m-settings #labels ul.d4m-labels-lang-ul li.d4m-labels-lang-listing.panel-default,
 
-#cta #ct-settings #recurrence-booking .d4m-frequently-discount-panel.panel-default {
+#cta #d4m-settings #recurrence-booking .d4m-frequently-discount-panel.panel-default {
 
     border-color: #ddd !important;
 
@@ -4726,11 +4728,11 @@ tr.details td.details-control {
 
 #cta #cta-clean-services-panel .panel-heading .panel-title,
 
-#cta #ct-settings #recurrence-booking .panel-heading .panel-title,
+#cta #d4m-settings #recurrence-booking .panel-heading .panel-title,
 
-#cta #ct-settings #labels ul.d4m-labels-lang-ul li.d4m-labels-lang-listing .panel-title,
+#cta #d4m-settings #labels ul.d4m-labels-lang-ul li.d4m-labels-lang-listing .panel-title,
 
-#cta #ct-settings #manageable-form-fields ul.d4m-labels-error-ul li.d4m-labels-error-listing .panel-title {
+#cta #d4m-settings #manageable-form-fields ul.d4m-labels-error-ul li.d4m-labels-error-listing .panel-title {
 
     line-height: 31px;
 
@@ -4744,9 +4746,9 @@ tr.details td.details-control {
 
 #cta #cta-clean-services-panel .d4m-clean-services-panel .panel-title span.d4m-clean-service-title-name,
 
-#cta #ct-settings #recurrence-booking .d4m-frequently-discount-panel .panel-title span.d4m-frequently-discount-panel-title-name,
+#cta #d4m-settings #recurrence-booking .d4m-frequently-discount-panel .panel-title span.d4m-frequently-discount-panel-title-name,
 
-#cta #ct-settings #labels ul.d4m-labels-lang-ul li.d4m-labels-lang-listing .panel-title span.d4m-label-lang-panel-title-name {
+#cta #d4m-settings #labels ul.d4m-labels-lang-ul li.d4m-labels-lang-listing .panel-title span.d4m-label-lang-panel-title-name {
 
     width: 88%;
 
@@ -5216,13 +5218,13 @@ padding: 2px;
 
 }
 
-#cta #ct-settings #manageable-form-fields ul.d4m-labels-error-ul li.d4m-labels-error-listing,
+#cta #d4m-settings #manageable-form-fields ul.d4m-labels-error-ul li.d4m-labels-error-listing,
 
-#cta #ct-settings #recurrence-booking ul#frequently-discount li,
+#cta #d4m-settings #recurrence-booking ul#frequently-discount li,
 
 #cta #cta-clean-services-panel ul#sortable-services li,
 
-#cta #ct-settings #labels ul.d4m-labels-lang-ul li.d4m-labels-lang-listing,
+#cta #d4m-settings #labels ul.d4m-labels-lang-ul li.d4m-labels-lang-listing,
 
 #cta #cta-clean-services-panel ul.my-sortable-addons-services li,
 
@@ -5536,7 +5538,7 @@ padding: 2px;
 
 #cta #cta-services-panel .d4m-service-details.col-lg-9,
 
-#cta #ct-settings .d4m-setting-details.col-lg-9 {
+#cta #d4m-settings .d4m-setting-details.col-lg-9 {
 
     padding: 0px !important;
 
@@ -6008,81 +6010,81 @@ padding: 2px;
 
 #cta #cta-clean-services-panel table label.ctoggle-large .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-large .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-large .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-postal-code .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-postal-code .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-tax-vat .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-tax-vat .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-patial-deposit .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-patial-deposit .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-cancel-policy .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-cancel-policy .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-multiple-booking-same-time .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-multiple-booking-same-time .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-star_show_on_front .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-star_show_on_front .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-appointment-auto-confirm .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-appointment-auto-confirm .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-allow-dc-terms-condition .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-allow-dc-terms-condition .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-allow-dc-privacy_policy .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-allow-dc-privacy_policy .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-ct_allow_front_desc .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-d4mallow_front_desc .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-ct_subheaders .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-d4msubheaders .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-ct_vc_status .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-d4mvc_status .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-ct_p_status .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-d4mp_status .toggle,
 
-#cta #ct-settings .panel-heading label.ctoggle-pay-locally .toggle,
+#cta #d4m-settings .panel-heading label.ctoggle-pay-locally .toggle,
 
-#cta #ct-settings .panel-heading label.ctoggle-paypal-checkout .toggle,
+#cta #d4m-settings .panel-heading label.ctoggle-paypal-checkout .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-paypal-guest-payment .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-paypal-guest-payment .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-paypal-test-mode .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-paypal-test-mode .toggle,
 
-#cta #ct-settings .panel-heading label.ctoggle-authorizedotnet-payment-checkout .toggle,
+#cta #d4m-settings .panel-heading label.ctoggle-authorizedotnet-payment-checkout .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-authorize-sandbox-mode .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-authorize-sandbox-mode .toggle,
 
-#cta #ct-settings .panel-heading label.ctoggle-stripe-payment-checkout .toggle,
+#cta #d4m-settings .panel-heading label.ctoggle-stripe-payment-checkout .toggle,
 
-#cta #ct-settings .panel-heading label.ctoggle-twocheckout-payment-checkout .toggle,
+#cta #d4m-settings .panel-heading label.ctoggle-twocheckout-payment-checkout .toggle,
 
-#cta #ct-settings .panel-heading label.ctoggle-payumoney-payment-checkout .toggle,
+#cta #d4m-settings .panel-heading label.ctoggle-payumoney-payment-checkout .toggle,
 
-#cta #ct-settings .panel-heading label.ctoggle-bank-transfer-payment-checkout .toggle,
+#cta #d4m-settings .panel-heading label.ctoggle-bank-transfer-payment-checkout .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-2checkout-test-mode .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-2checkout-test-mode .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-admin-email-notification .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-admin-email-notification .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-client-email-notification .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-client-email-notification .toggle,
 
-#cta #ct-settings .panel-heading label.ctoggle-sms-service-ena-dis .toggle,
+#cta #d4m-settings .panel-heading label.ctoggle-sms-service-ena-dis .toggle,
 
-#cta #ct-settings .panel-heading label.ctoggle-sms-noti-twilio .toggle,
+#cta #d4m-settings .panel-heading label.ctoggle-sms-noti-twilio .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-ct-sms-reminder-client-status .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-d4m-sms-reminder-client-status .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-ct-sms-reminder-admin-status .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-d4m-sms-reminder-admin-status .toggle,
 
-#cta #ct-settings .panel-heading label.ctoggle-sms-noti-plivo .toggle,
+#cta #d4m-settings .panel-heading label.ctoggle-sms-noti-plivo .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-ct-sms-reminder-client-status-plivo .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-d4m-sms-reminder-client-status-plivo .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-ct-sms-reminder-admin-status-plivo .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-d4m-sms-reminder-admin-status-plivo .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-ct-sms-reminder-staff-status-plivo .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-d4m-sms-reminder-staff-status-plivo .toggle,
 
-#cta #ct-settings table .form-group label.ctoggle-ct-sms-reminder-staff-status .toggle,
+#cta #d4m-settings table .form-group label.ctoggle-d4m-sms-reminder-staff-status .toggle,
 
-#cta #ct-settings .panel-heading label.ctoggle-frequently-discount .toggle,
+#cta #d4m-settings .panel-heading label.ctoggle-frequently-discount .toggle,
 
-#cta #ct-settings #manageable-form-fields ul.d4m-labels-error-ul li.d4m-labels-error-listing label.ctoggle .toggle{
+#cta #d4m-settings #manageable-form-fields ul.d4m-labels-error-ul li.d4m-labels-error-listing label.ctoggle .toggle{
 
     min-width: 72px !important;
 
@@ -6090,9 +6092,9 @@ padding: 2px;
 
 
 
-#cta #ct-settings table .form-group label.ct_ext_payments_list_css .toggle,
+#cta #d4m-settings table .form-group label.d4mext_payments_list_css .toggle,
 
-#cta #ct-settings .panel-heading label.ct_ext_payments_list_css .toggle{
+#cta #d4m-settings .panel-heading label.d4mext_payments_list_css .toggle{
 
     min-width: 72px !important;
 
@@ -6100,11 +6102,11 @@ padding: 2px;
 
 /*
 
-#cta #ct-settings .tab-content > .tab-pane,
+#cta #d4m-settings .tab-content > .tab-pane,
 
-#cta #ct-settings .tab-content > .tab-pane.fade,
+#cta #d4m-settings .tab-content > .tab-pane.fade,
 
-#cta #ct-settings .tab-content > .tab-pane.fade.in{
+#cta #d4m-settings .tab-content > .tab-pane.fade.in{
 
 	visibility:hidden;
 
@@ -6114,11 +6116,11 @@ padding: 2px;
 
 }
 
-#cta #ct-settings .tab-content > .active.in,
+#cta #d4m-settings .tab-content > .active.in,
 
-#cta #ct-settings .tab-content > .tab-pane.fade.active,
+#cta #d4m-settings .tab-content > .tab-pane.fade.active,
 
-#cta #ct-settings .tab-content > .tab-pane.fade.active.in{
+#cta #d4m-settings .tab-content > .tab-pane.fade.active.in{
 
 	visibility:visible !important;
 
@@ -6128,7 +6130,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #sms-reminder .d4m-all-sms-gateway-main .d4m-sms-gateway .panel-heading {
+#cta #d4m-settings #sms-reminder .d4m-all-sms-gateway-main .d4m-sms-gateway .panel-heading {
 
     float: left;
 
@@ -6142,15 +6144,15 @@ padding: 2px;
 
 
 
-#cta #ct-settings #general-setting .form-group,
+#cta #d4m-settings #general-setting .form-group,
 
-#cta #ct-settings #appearance-setting .form-group,
+#cta #d4m-settings #appearance-setting .form-group,
 
-#cta #ct-settings #payment-setting .d4m-payment-methods .form-group,
+#cta #d4m-settings #payment-setting .d4m-payment-methods .form-group,
 
-#cta #ct-settings #sms-reminder .d4m-sms-reminder-input .form-group,
+#cta #d4m-settings #sms-reminder .d4m-sms-reminder-input .form-group,
 
-#cta #ct-settings #labels .d4m-labels-all .form-group {
+#cta #d4m-settings #labels .d4m-labels-all .form-group {
 
     margin-bottom: 1px;
 
@@ -6162,11 +6164,11 @@ padding: 2px;
 
 
 
-#cta #ct-settings #general-setting .panel,
+#cta #d4m-settings #general-setting .panel,
 
-#cta #ct-settings #payment-setting .panel,
+#cta #d4m-settings #payment-setting .panel,
 
-#cta #ct-settings #email-setting .panel {
+#cta #d4m-settings #email-setting .panel {
 
     box-shadow: unset;
 
@@ -6178,27 +6180,24 @@ padding: 2px;
 
 
 
-#cta #ct-settings .panel-heading.cta-top-right {
+#cta #d4m-settings .panel-heading.cta-top-right {
 
     color: #333;
-
     background-color: #F5F5F5;
-
     border-color: #8D8D8D;
-
     position: fixed;
-
-    width: 75%;
-
     float: left;
-
     z-index: 99;
+    width: 75%;
+    DISPLAY: flex !important;
+    justify-content: space-between;
+    align-items: center;
 
 }
 
 
 
-#cta #ct-settings .panel-heading {
+#cta #d4m-settings .panel-heading {
 
     color: #333;
 
@@ -6210,7 +6209,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #email-setting .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+#cta #d4m-settings #email-setting .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
 
     width: 194px;
 
@@ -6218,7 +6217,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings .panel-heading h1.panel-title {
+#cta #d4m-settings .panel-heading h1.panel-title {
 
     text-align: left;
 
@@ -6235,22 +6234,7 @@ padding: 2px;
     line-height: 25px;
 
 }
-
-
-
-#cta #ct-settings .panel-heading .cta-setting-fix-btn {
-
-    position: absolute;
-
-    right: 50px;
-
-    top: 7px;
-
-}
-
-
-
-#cta #ct-settings .cta-panel-default {
+#cta #d4m-settings .cta-panel-default {
 
     background: #F1F5F7;
 
@@ -6268,7 +6252,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings .cta-panel-default .panel-body {
+#cta #d4m-settings .cta-panel-default .panel-body {
 
     padding: 15px;
 
@@ -6276,9 +6260,9 @@ padding: 2px;
 
 
 
-#cta #ct-staff-dashboard .staff-dashboard.d4m-left-menu,
+#cta #d4m-staff-dashboard .staff-dashboard.d4m-left-menu,
 
-#cta #ct-settings .d4m-left-menu {
+#cta #d4m-settings .d4m-left-menu {
 
     background: #E1E7EB none repeat scroll 0% 0%;
 
@@ -6300,7 +6284,7 @@ padding: 2px;
 
 }
 
-#cta #ct-settings .d4m-setting-details{
+#cta #d4m-settings .d4m-setting-details{
 
 	position: relative;
 
@@ -6310,9 +6294,9 @@ padding: 2px;
 
 }
 
-#cta #ct-staff-dashboard .d4m-left-menu ul li:after,
+#cta #d4m-staff-dashboard .d4m-left-menu ul li:after,
 
-#cta #ct-settings .d4m-left-menu ul li:after {
+#cta #d4m-settings .d4m-left-menu ul li:after {
 
     content: "";
 
@@ -6330,15 +6314,15 @@ padding: 2px;
 
 }
 
-#cta #ct-staff-dashboard .d4m-left-menu ul li a{
+#cta #d4m-staff-dashboard .d4m-left-menu ul li a{
 
 	 font-size: 15px !important; 
 
 }
 
-#cta #ct-staff-dashboard .d4m-left-menu ul li a,
+#cta #d4m-staff-dashboard .d4m-left-menu ul li a,
 
-#cta #ct-settings .d4m-left-menu ul li a {
+#cta #d4m-settings .d4m-left-menu ul li a {
 
     font-family: inherit;
 
@@ -6360,13 +6344,13 @@ padding: 2px;
 
 
 
-#cta #ct-settings .d4m-left-menu ul li.active a,
+#cta #d4m-settings .d4m-left-menu ul li.active a,
 
-#cta #ct-staff-dashboard .d4m-left-menu ul li.active a,
+#cta #d4m-staff-dashboard .d4m-left-menu ul li.active a,
 
-#cta #ct-settings .d4m-left-menu ul li a:hover,
+#cta #d4m-settings .d4m-left-menu ul li a:hover,
 
-#cta #ct-staff-dashboard .d4m-left-menu ul li a:hover {
+#cta #d4m-staff-dashboard .d4m-left-menu ul li a:hover {
 
     background-color: #F1F5F7 !important;
 
@@ -6390,7 +6374,7 @@ padding: 2px;
 
 }
 
-#cta #ct-settings .d4m-setting-details table.d4m-common-table tr td {
+#cta #d4m-settings .d4m-setting-details table.d4m-common-table tr td {
 
     padding: 5px;
 
@@ -6398,7 +6382,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings .d4m-general-setting .d4m-setting-menu {
+#cta #d4m-settings .d4m-general-setting .d4m-setting-menu {
 
     color: #000;
 
@@ -6410,7 +6394,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #general-setting .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+#cta #d4m-settings #general-setting .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
 
     width: 100%;
 
@@ -6418,7 +6402,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #general-setting .bootstrap-select.btn-group .dropdown-menu {
+#cta #d4m-settings #general-setting .bootstrap-select.btn-group .dropdown-menu {
 
     max-height: 260px !important;
 
@@ -6428,7 +6412,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #general-setting .bootstrap-select.btn-group .dropdown-menu li a {
+#cta #d4m-settings #general-setting .bootstrap-select.btn-group .dropdown-menu li a {
 
     line-height: 23px;
 
@@ -6438,9 +6422,9 @@ padding: 2px;
 
 
 
-#cta #ct-settings #general-setting .d4m-tax-vat-input-container,
+#cta #d4m-settings #general-setting .d4m-tax-vat-input-container,
 
-#cta #ct-settings #general-setting .multiple-booking-container {
+#cta #d4m-settings #general-setting .multiple-booking-container {
 
     position: relative;
 
@@ -6454,7 +6438,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #general-setting i.d4m-tax-percent {
+#cta #d4m-settings #general-setting i.d4m-tax-percent {
 
     position: relative;
 
@@ -6466,7 +6450,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #general-setting .mycollapse_patial-deposit i.fa-percent {
+#cta #d4m-settings #general-setting .mycollapse_patial-deposit i.fa-percent {
 
     position: relative;
 
@@ -6494,7 +6478,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #general-setting .d4m-tax-vat-input-container .d4m-partial-input-per {
+#cta #d4m-settings #general-setting .d4m-tax-vat-input-container .d4m-partial-input-per {
 
     float: left;
 
@@ -6502,7 +6486,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #general-setting i.d4m-partial-deposit-percent {
+#cta #d4m-settings #general-setting i.d4m-partial-deposit-percent {
 
     position: relative;
 
@@ -6514,7 +6498,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #general-setting .d4m-partial-deposit-input-container .d4m-partial-input-per {
+#cta #d4m-settings #general-setting .d4m-partial-deposit-input-container .d4m-partial-input-per {
 
     float: left;
 
@@ -6528,9 +6512,9 @@ padding: 2px;
 
 
 
-#cta #ct-settings #appearance-setting .minicolors .minicolors-input,
+#cta #d4m-settings #appearance-setting .minicolors .minicolors-input,
 
-#cta #ct-settings .minicolors-theme-bootstrap .minicolors-swatch {
+#cta #d4m-settings .minicolors-theme-bootstrap .minicolors-swatch {
 
     cursor: pointer;
 
@@ -6544,9 +6528,9 @@ padding: 2px;
 
 
 
-#cta #ct-settings #payment-setting .d4m-all-payments-main .d4m-payment-methods,
+#cta #d4m-settings #payment-setting .d4m-all-payments-main .d4m-payment-methods,
 
-#cta #ct-settings #sms-reminder .d4m-all-sms-gateway-main .d4m-sms-gateway {
+#cta #d4m-settings #sms-reminder .d4m-all-sms-gateway-main .d4m-sms-gateway {
 
     float: left;
 
@@ -6560,7 +6544,7 @@ padding: 2px;
 
 /*
 
-#cta #ct-settings #sms-reminder .d4m-all-sms-gateway-main .d4m-sms-gateway .panel-heading {
+#cta #d4m-settings #sms-reminder .d4m-all-sms-gateway-main .d4m-sms-gateway .panel-heading {
 
     float: left;
 
@@ -6572,7 +6556,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #payment-setting .panel-group {
+#cta #d4m-settings #payment-setting .panel-group {
 
     margin-bottom: 0px !important;
 
@@ -6580,7 +6564,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #payment-setting .d4m-paypal-setting-warning {
+#cta #d4m-settings #payment-setting .d4m-paypal-setting-warning {
 
     position: relative;
 
@@ -6594,11 +6578,11 @@ padding: 2px;
 
 
 
-#cta #ct-settings #payment-setting .d4m-all-payments-main .d4m-payment-methods img.cta-paypal-img-payments,
+#cta #d4m-settings #payment-setting .d4m-all-payments-main .d4m-payment-methods img.cta-paypal-img-payments,
 
-#cta #ct-settings #payment-setting .d4m-all-payments-main .d4m-payment-methods img.cta-authorize-img-payments,
+#cta #d4m-settings #payment-setting .d4m-all-payments-main .d4m-payment-methods img.cta-authorize-img-payments,
 
-#cta #ct-settings #sms-reminder .d4m-all-sms-gateway-main .d4m-sms-gateway img.cta-sms-gateway-img {
+#cta #d4m-settings #sms-reminder .d4m-all-sms-gateway-main .d4m-sms-gateway img.cta-sms-gateway-img {
 
     position: relative;
 
@@ -6606,7 +6590,7 @@ padding: 2px;
 
 }
 
-#cta #ct-settings #payment-setting .d4m-all-payments-main .d4m-payment-methods .payment-icon{
+#cta #d4m-settings #payment-setting .d4m-all-payments-main .d4m-payment-methods .payment-icon{
 
 	position: relative;
 
@@ -6618,7 +6602,7 @@ padding: 2px;
 
 }
 
-#cta #ct-settings #payment-setting .d4m-all-payments-main .d4m-payment-methods .payment-icon i.fa.fa-money{
+#cta #d4m-settings #payment-setting .d4m-all-payments-main .d4m-payment-methods .payment-icon i.fa.fa-money{
 
 	font-size: 26px;
 
@@ -6628,7 +6612,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #payment-setting .d4m-payment-methods .d4m-enable-disable-right.d4m-pay-locally {
+#cta #d4m-settings #payment-setting .d4m-payment-methods .d4m-enable-disable-right.d4m-pay-locally {
 
     display: inline-block;
 
@@ -6642,7 +6626,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #payment-setting .d4m-payment-methods .d4m-enable-disable-right {
+#cta #d4m-settings #payment-setting .d4m-payment-methods .d4m-enable-disable-right {
 
     display: inline-block;
 
@@ -6848,9 +6832,9 @@ padding: 2px;
 
 
 
-#cta #ct-settings #email-template .tab-content ul li,
+#cta #d4m-settings #email-template .tab-content ul li,
 
-#cta #ct-settings #sms-template .tab-content ul li {
+#cta #d4m-settings #sms-template .tab-content ul li {
 
     float: left;
 
@@ -6864,9 +6848,9 @@ padding: 2px;
 
 
 
-#cta #ct-settings #email-template ul li .panel-heading,
+#cta #d4m-settings #email-template ul li .panel-heading,
 
-#cta #ct-settings #sms-template ul li .panel-heading {
+#cta #d4m-settings #sms-template ul li .panel-heading {
 
     float: left;
 
@@ -6876,9 +6860,9 @@ padding: 2px;
 
 
 
-#cta #ct-settings #email-template ul li .panel-heading,
+#cta #d4m-settings #email-template ul li .panel-heading,
 
-#cta #ct-settings #sms-template ul li .panel-heading {
+#cta #d4m-settings #sms-template ul li .panel-heading {
 
     padding: 5px 10px;
 
@@ -6886,9 +6870,9 @@ padding: 2px;
 
 
 
-#cta #ct-settings #email-template .tab-content,
+#cta #d4m-settings #email-template .tab-content,
 
-#cta #ct-settings #sms-template .tab-content {
+#cta #d4m-settings #sms-template .tab-content {
 
     padding: 0px 15px;
 
@@ -6896,15 +6880,15 @@ padding: 2px;
 
 
 
-#cta #ct-settings #email-template .tab-content #client-email-template h4.panel-title,
+#cta #d4m-settings #email-template .tab-content #client-email-template h4.panel-title,
 
-#cta #ct-settings #email-template .tab-content #admin-email-template h4.panel-title,
+#cta #d4m-settings #email-template .tab-content #admin-email-template h4.panel-title,
 
-#cta #ct-settings #email-template .tab-content #staff-email-template h4.panel-title,
+#cta #d4m-settings #email-template .tab-content #staff-email-template h4.panel-title,
 
-#cta #ct-settings #sms-template .tab-content #client-sms-template h4.panel-title,
+#cta #d4m-settings #sms-template .tab-content #client-sms-template h4.panel-title,
 
-#cta #ct-settings #sms-template .tab-content #admin-sms-template h4.panel-title {
+#cta #d4m-settings #sms-template .tab-content #admin-sms-template h4.panel-title {
 
     line-height: 34px;
 
@@ -6912,13 +6896,13 @@ padding: 2px;
 
 
 
-#cta #ct-settings #email-template .tab-content #client-email-template #accordion,
+#cta #d4m-settings #email-template .tab-content #client-email-template #accordion,
 
-#cta #ct-settings #email-template .tab-content #admin-provider-email-template #accordion,
+#cta #d4m-settings #email-template .tab-content #admin-provider-email-template #accordion,
 
-#cta #ct-settings #sms-template .tab-content #client-sms-template #accordion,
+#cta #d4m-settings #sms-template .tab-content #client-sms-template #accordion,
 
-#cta #ct-settings #sms-template .tab-content #admin-sms-template #accordion {
+#cta #d4m-settings #sms-template .tab-content #admin-sms-template #accordion {
 
     padding: 0px;
 
@@ -6932,13 +6916,13 @@ padding: 2px;
 
 
 
-#cta #ct-settings #email-template .tab-content #client-email-template #accordion .d4m-email-panel,
+#cta #d4m-settings #email-template .tab-content #client-email-template #accordion .d4m-email-panel,
 
-#cta #ct-settings #email-template .tab-content #admin-email-template #accordion .d4m-email-panel,
+#cta #d4m-settings #email-template .tab-content #admin-email-template #accordion .d4m-email-panel,
 
-#cta #ct-settings #sms-template .tab-content #client-sms-template #accordion .d4m-sms-panel,
+#cta #d4m-settings #sms-template .tab-content #client-sms-template #accordion .d4m-sms-panel,
 
-#cta #ct-settings #sms-template .tab-content #admin-sms-template #accordion .d4m-sms-panel {
+#cta #d4m-settings #sms-template .tab-content #admin-sms-template #accordion .d4m-sms-panel {
 
     float: left;
 
@@ -6952,13 +6936,13 @@ padding: 2px;
 
 
 
-#cta #ct-settings #email-template .tab-content #client-email-template #accordion .d4m-email-panel .panel-heading,
+#cta #d4m-settings #email-template .tab-content #client-email-template #accordion .d4m-email-panel .panel-heading,
 
-#cta #ct-settings #email-template .tab-content #admin-email-template #accordion .d4m-email-panel .panel-heading,
+#cta #d4m-settings #email-template .tab-content #admin-email-template #accordion .d4m-email-panel .panel-heading,
 
-#cta #ct-settings #sms-template .tab-content #client-sms-template #accordion .d4m-sms-panel .panel-heading,
+#cta #d4m-settings #sms-template .tab-content #client-sms-template #accordion .d4m-sms-panel .panel-heading,
 
-#cta #ct-settings #sms-template .tab-content #admin-sms-template #accordion .d4m-sms-panel .panel-heading {
+#cta #d4m-settings #sms-template .tab-content #admin-sms-template #accordion .d4m-sms-panel .panel-heading {
 
     padding: 5px 10px;
 
@@ -6972,9 +6956,9 @@ padding: 2px;
 
 
 
-#cta #ct-settings #email-template .panel-collapse table.d4m-email-table tr td,
+#cta #d4m-settings #email-template .panel-collapse table.d4m-email-table tr td,
 
-#cta #ct-settings #sms-template .panel-collapse table.d4m-email-table tr td {
+#cta #d4m-settings #sms-template .panel-collapse table.d4m-email-table tr td {
 
     padding: 5px;
 
@@ -6982,13 +6966,13 @@ padding: 2px;
 
 
 
-#cta #ct-settings #client-email-template input[type="checkbox"],
+#cta #d4m-settings #client-email-template input[type="checkbox"],
 
-#cta #ct-settings #admin-email-template input[type="checkbox"],
+#cta #d4m-settings #admin-email-template input[type="checkbox"],
 
-#cta #ct-settings #client-sms-template input[type="checkbox"],
+#cta #d4m-settings #client-sms-template input[type="checkbox"],
 
-#cta #ct-settings #admin-sms-template input[type="checkbox"] {
+#cta #d4m-settings #admin-sms-template input[type="checkbox"] {
 
     display: none;
 
@@ -6996,9 +6980,9 @@ padding: 2px;
 
 
 
-#cta #ct-settings #email-template .d4m-yes-no-email-right,
+#cta #d4m-settings #email-template .d4m-yes-no-email-right,
 
-#cta #ct-settings #sms-template .d4m-yes-no-sms-right {
+#cta #d4m-settings #sms-template .d4m-yes-no-sms-right {
 
     display: inline-block;
 
@@ -7014,13 +6998,13 @@ padding: 2px;
 
 
 
-#cta #ct-settings #client-email-template .d4m-email-panel .panel-heading .d4m-toggle,
+#cta #d4m-settings #client-email-template .d4m-email-panel .panel-heading .d4m-toggle,
 
-#cta #ct-settings #admin-email-template .d4m-email-panel .panel-heading .d4m-toggle,
+#cta #d4m-settings #admin-email-template .d4m-email-panel .panel-heading .d4m-toggle,
 
-#cta #ct-settings #client-sms-template .d4m-sms-panel .panel-heading .d4m-toggle,
+#cta #d4m-settings #client-sms-template .d4m-sms-panel .panel-heading .d4m-toggle,
 
-#cta #ct-settings #admin-sms-template .d4m-sms-panel .panel-heading .d4m-toggle {
+#cta #d4m-settings #admin-sms-template .d4m-sms-panel .panel-heading .d4m-toggle {
 
     margin: 4px 4px 4px 0px;
 
@@ -7038,7 +7022,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #sms-reminder .d4m-enable-disable-right {
+#cta #d4m-settings #sms-reminder .d4m-enable-disable-right {
 
     display: inline-block;
 
@@ -7052,7 +7036,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #sms-reminder .d4m-sms-gateway .d4m-enable-disable-right {
+#cta #d4m-settings #sms-reminder .d4m-sms-gateway .d4m-enable-disable-right {
 
     display: inline-block;
 
@@ -7066,7 +7050,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #sms-reminder .panel-heading .panel-title a.d4m-tooltip-link {
+#cta #d4m-settings #sms-reminder .panel-heading .panel-title a.d4m-tooltip-link {
 
     top: 0px;
 
@@ -7074,7 +7058,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #sms-reminder td#hr {
+#cta #d4m-settings #sms-reminder td#hr {
 
     padding: 0px;
 
@@ -7082,7 +7066,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #sms-reminder .d4m-sms-reminder-input table tbody th {
+#cta #d4m-settings #sms-reminder .d4m-sms-reminder-input table tbody th {
 
     padding: 8px;
 
@@ -7096,7 +7080,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #labels table tbody th {
+#cta #d4m-settings #labels table tbody th {
 
     padding: 8px;
 
@@ -7110,7 +7094,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #manage-form-fields table tbody tr td div.form-group {
+#cta #d4m-settings #manage-form-fields table tbody tr td div.form-group {
 
     margin: 0px;
 
@@ -7118,7 +7102,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #manage-form-fields .d4m-min-max {
+#cta #d4m-settings #manage-form-fields .d4m-min-max {
 
     width: 125px;
 
@@ -7126,7 +7110,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #manage-form-fields .d4m-min-max i.fa {
+#cta #d4m-settings #manage-form-fields .d4m-min-max i.fa {
 
     margin: 0px;
 
@@ -7134,7 +7118,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #manage-form-fields .d4m-min-max .d4m-btn-text {
+#cta #d4m-settings #manage-form-fields .d4m-min-max .d4m-btn-text {
 
     width: 40%;
 
@@ -7164,7 +7148,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #promocode .btn-xs.d4m-edit-coupon {
+#cta #d4m-settings #promocode .btn-xs.d4m-edit-coupon {
 
     float: left;
 
@@ -7172,9 +7156,9 @@ padding: 2px;
 
 
 
-#cta #ct-settings #promocode .d4m-edit-coupon,
+#cta #d4m-settings #promocode .d4m-edit-coupon,
 
-#cta #ct-settings #promocode .delete_coupon {
+#cta #d4m-settings #promocode .delete_coupon {
 
     position: relative;
 
@@ -7184,7 +7168,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #promocode .tab-content {
+#cta #d4m-settings #promocode .tab-content {
 
     padding: 0px 15px;
 
@@ -7192,7 +7176,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #promocode .panel-collapse table.d4m-email-table tr td {
+#cta #d4m-settings #promocode .panel-collapse table.d4m-email-table tr td {
 
     padding: 5px;
 
@@ -7200,7 +7184,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #promocode #datepicker {
+#cta #d4m-settings #promocode #datepicker {
 
     width: 180px;
 
@@ -7210,7 +7194,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #promocode #datepicker > span:hover {
+#cta #d4m-settings #promocode #datepicker > span:hover {
 
     cursor: pointer;
 
@@ -7218,7 +7202,7 @@ padding: 2px;
 
 
 
-#cta #ct-settings #promocode .panel-default #add-new-promocode .table-responsive {
+#cta #d4m-settings #promocode .panel-default #add-new-promocode .table-responsive {
 
     min-height: 700px;
 
@@ -7250,7 +7234,7 @@ padding: 2px;
 
 /* front tool tips */
 
-#cta #ct-settings #front_tooltips .d4m-enable-disable-right {
+#cta #d4m-settings #front_tooltips .d4m-enable-disable-right {
 
     display: inline-block;
 
@@ -7534,9 +7518,9 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child {
 
 }	
 
-#cta .dataTables_wrapper .dataTables_length#ct-staff-member-offtime-list_length,
+#cta .dataTables_wrapper .dataTables_length#d4m-staff-member-offtime-list_length,
 
-#cta div.dataTables_wrapper div#ct-staff-member-offtime-list_filter.dataTables_filter{
+#cta div.dataTables_wrapper div#d4m-staff-member-offtime-list_filter.dataTables_filter{
 
     margin-bottom: 5px !important;
 
@@ -9184,7 +9168,7 @@ div.dataTables_wrapper div.dataTables_info {
 
 }
 
-.ct_custom_css_loader_preview_overlay{
+.d4mcustom_css_loader_preview_overlay{
 
 	background-color: #000;
 
@@ -9204,7 +9188,7 @@ div.dataTables_wrapper div.dataTables_info {
 
 
 
-#ct-calendar-all .d4m-manual-booking-modal .modal-body{
+#d4m-calendar-all .d4m-manual-booking-modal .modal-body{
 
 	float: left;
 
@@ -9442,17 +9426,17 @@ div.dataTables_wrapper div.dataTables_info {
 
 
 
-#addons_page .ct_set_installed_color a,
+#addons_page .d4mset_installed_color a,
 
-#addons_page .ct_set_installed_color{
+#addons_page .d4mset_installed_color{
 
 	color:#12bf47 !important;
 
 }
 
-#addons_page .ct_set_delete_ext_color a,
+#addons_page .d4mset_delete_ext_color a,
 
-#addons_page .ct_set_delete_ext_color{
+#addons_page .d4mset_delete_ext_color{
 
 	color:red !important;
 
@@ -9484,7 +9468,7 @@ div.dataTables_wrapper div.dataTables_info {
 
 }
 
-#addons_page .ct_three_column{
+#addons_page .d4mthree_column{
 
 	float:right;
 
@@ -9524,13 +9508,13 @@ div.dataTables_wrapper div.dataTables_info {
 
 }
 
-/*#cta #ct-staff-dashboard .staff-dashboard.d4m-left-menu ul{
+/*#cta #d4m-staff-dashboard .staff-dashboard.d4m-left-menu ul{
 
     display: inline-flex;
 
 }*/
 
-#cta #ct-staff-dashboard .staff-dashboard.d4m-left-menu ul li{
+#cta #d4m-staff-dashboard .staff-dashboard.d4m-left-menu ul li{
 
     float: left;
 
@@ -9550,32 +9534,32 @@ div.dataTables_wrapper div.dataTables_info {
 
 }
 
-#cta #ct-settings .d4m-left-menu ul#cta-staff-nav li.active a,
+#cta #d4m-settings .d4m-left-menu ul#cta-staff-nav li.active a,
 
-#cta #ct-staff-dashboard .d4m-left-menu ul#cta-staff-nav li.active a,
+#cta #d4m-staff-dashboard .d4m-left-menu ul#cta-staff-nav li.active a,
 
-#cta #ct-settings .d4m-left-menu ul#cta-staff-nav li a:hover,
+#cta #d4m-settings .d4m-left-menu ul#cta-staff-nav li a:hover,
 
-#cta #ct-staff-dashboard .d4m-left-menu ul#cta-staff-nav li a:hover{
-
-    padding: 40px 0px;
-
-}
-
-#cta #ct-staff-dashboard .d4m-left-menu ul#cta-staff-nav li a{
+#cta #d4m-staff-dashboard .d4m-left-menu ul#cta-staff-nav li a:hover{
 
     padding: 40px 0px;
 
 }
 
-#cta #ct-staff-dashboard .d4m-left-menu ul#cta-staff-nav li a.sot-form-fields{
+#cta #d4m-staff-dashboard .d4m-left-menu ul#cta-staff-nav li a{
+
+    padding: 40px 0px;
+
+}
+
+#cta #d4m-staff-dashboard .d4m-left-menu ul#cta-staff-nav li a.sot-form-fields{
 
     padding-bottom: 20px;
 	    height: 130px;
 
 }
 
-#cta #ct-staff-dashboard .staff-dashboard.d4m-left-menu, #cta #ct-settings .d4m-left-menu{
+#cta #d4m-staff-dashboard .staff-dashboard.d4m-left-menu, #cta #d4m-settings .d4m-left-menu{
 
     height: auto;
 
@@ -9588,12 +9572,12 @@ div.dataTables_wrapper div.dataTables_info {
     min-width: 80px;
 }
 
-#cta #ct-payments .d4m-custom-radio ul.d4m-radio-list li{padding-left:0px;}
-#cta #ct-payments .payment-methods{float:left;display:block;width:100%;}
-#cta #ct-payments .d4m-paypal-image{position:relative;vertical-align:middle;left:8px;}
-#cta #ct-pay-methods.common-payment-style{float:left;width:100%;margin:20px 0px;}
+#cta #d4m-payments .d4m-custom-radio ul.d4m-radio-list li{padding-left:0px;}
+#cta #d4m-payments .payment-methods{float:left;display:block;width:100%;}
+#cta #d4m-payments .d4m-paypal-image{position:relative;vertical-align:middle;left:8px;}
+#cta #d4m-pay-methods.common-payment-style{float:left;width:100%;margin:20px 0px;}
 #cta .common-payment-style{background:#F8F8F8;}
-#cta #ct-pay-methods [data-period="card-payment-authorize"]{display:none;}
+#cta #d4m-pay-methods [data-period="card-payment-authorize"]{display:none;}
 #cta #card-payment-fields{float:left;margin:10px 0px 0px; margin-top: 0;padding:10px 5px 5px 0px;}
 #cta #card-payment-fields .d4m-header-bg{line-height:35px;}
 #cta #card-payment-fields .d4m-header-bg h4.header4{margin:0px;padding:0px;float:left;padding-bottom: 10px;}
@@ -9687,10 +9671,10 @@ div.dataTables_wrapper div.dataTables_info {
 }
 
 
-#ct-settings .pl-30{padding-left: 30px;}
-#ct-settings .pl-15{padding-left: 15px;}
-#ct-settings .form-label{padding: 16px 0 6px 0;}
-#ct-settings .pb-6{padding-bottom: 6px;}
+#d4m-settings .pl-30{padding-left: 30px;}
+#d4m-settings .pl-15{padding-left: 15px;}
+#d4m-settings .form-label{padding: 16px 0 6px 0;}
+#d4m-settings .pb-6{padding-bottom: 6px;}
 #cta .d4m-custom-radio ul.app-set{margin-bottom: 0px;padding-left: 0px;}
 #cta .header4{font-weight: 600;
     color: #003b46;}
@@ -9701,7 +9685,7 @@ div.dataTables_wrapper div.dataTables_info {
 #cta .main-info-usr{border: 2px solid #003b4675;
     border-radius: 4px;
     padding: 5px 25px;}
-#ct-staff-member-offtime-list .staff-sch td{text-align: start !important;
+#d4m-staff-member-offtime-list .staff-sch td{text-align: start !important;
     padding-left: 18px  !important;}
 #cta .pt-3{padding-top: 3px;}
 #cta .pt-5{padding-top: 5px;}
@@ -9752,3 +9736,5 @@ div.dataTables_wrapper div.dataTables_info {
 
 
 .bootstrap-select>select.selectpicker.mobile-device{display:none !important;}
+.company-details .d4m-clean-staff-img-icon-label .d4m-camera-icon-common{    position: absolute;
+    visibility: hidden;}
