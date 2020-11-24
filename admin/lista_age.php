@@ -17,7 +17,7 @@ if($get_time_format == 12){
 }else{
 	$times = " H:i";
 }
-
+//Try
 $lang = $setting->get_option("ct_language");
 $label_language_values = array();
 $language_label_arr = $setting->get_all_labelsbyid($lang);
