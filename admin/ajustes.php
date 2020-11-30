@@ -11,6 +11,15 @@ if ( is_file(dirname(dirname(__FILE__)).'/extension/GoogleCalendar/google-api-ph
 {
   require_once dirname(dirname(__FILE__)).'/extension/GoogleCalendar/google-api-php-client/src/Google_Client.php';
 }
+
+<?php
+	class do4me_database{
+	public $hostnames = "localhost";
+	public $username = "u596fpzbfrxbx";
+	public $passwords = "851*21B*~$17";
+	public $database = "dbsbgrrdzacsjq";
+	public $epcode = "5b68f80d-9c27-4df8-88c0-3fce97d7900c";
+} ?>
 $manage_form_errors_message = 
 array(
 
