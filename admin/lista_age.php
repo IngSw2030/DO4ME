@@ -1,16 +1,16 @@
 <?php 
 
-include(dirname(dirname(__FILE__)).'/objects/class_connection.php');
-include(dirname(dirname(__FILE__)).'/objects/class_users.php');
-include(dirname(dirname(__FILE__)).'/objects/class_setting.php');
+include(dirname(dirname(__FILE__)).'/objed4ms/class_conned4mion.php');
+include(dirname(dirname(__FILE__)).'/objed4ms/class_users.php');
+include(dirname(dirname(__FILE__)).'/objed4ms/class_setting.php');
 $database=new do4me_db();
-$con=$database->connect();
+$con=$database->conned4m();
 $user=new do4me_users();
 $user->conn=$con;
 $setting = new do4me_setting();
 $setting->conn = $con;
-$get_date_format = $setting->get_option('ct_date_picker_date_format');
-$get_time_format = $setting->get_option('ct_time_format');
+$get_date_format = $setting->get_option('d4m_date_picker_date_format');
+$get_time_format = $setting->get_option('d4m_time_format');
 $times = "";
 if($get_time_format == 12){
 	$times = " h:i A";
@@ -18,7 +18,7 @@ if($get_time_format == 12){
 	$times = " H:i";
 }
 //Try
-$lang = $setting->get_option("ct_language");
+$lang = $setting->get_option("d4m_language");
 $label_language_values = array();
 $language_label_arr = $setting->get_all_labelsbyid($lang);
 if ($language_label_arr[1] != "" || $language_label_arr[3] != "" || $language_label_arr[4] != "" || $language_label_arr[5] != "" || $language_label_arr[6] != "")
@@ -54,8 +54,8 @@ else
 }
 
 $english_date_array = array(
-"January","Jan","February","Feb","March","Mar","April","Apr","May","June","Jun","July","Jul","August","Aug","September","Sep","October","Oct","November","Nov","December","Dec","Sun","Mon","Tue","Wed","Thu","Fri","Sat","su","mo","tu","we","th","fr","sa","AM","PM");
-	$selected_lang_label = array(
+"January","Jan","February","Feb","March","Mar","April","Apr","May","June","Jun","July","Jul","August","Aug","September","Sep","Od4mober","Od4m","November","Nov","December","Dec","Sun","Mon","Tue","Wed","Thu","Fri","Sat","su","mo","tu","we","th","fr","sa","AM","PM");
+	$seled4med_lang_label = array(
 ucfirst(strtolower($label_language_values['january'])),
 ucfirst(strtolower($label_language_values['jan'])),
 ucfirst(strtolower($label_language_values['february'])),
@@ -73,8 +73,8 @@ ucfirst(strtolower($label_language_values['august'])),
 ucfirst(strtolower($label_language_values['aug'])),
 ucfirst(strtolower($label_language_values['september'])),
 ucfirst(strtolower($label_language_values['sep'])),
-ucfirst(strtolower($label_language_values['october'])),
-ucfirst(strtolower($label_language_values['oct'])),
+ucfirst(strtolower($label_language_values['od4mober'])),
+ucfirst(strtolower($label_language_values['od4m'])),
 ucfirst(strtolower($label_language_values['november'])),
 ucfirst(strtolower($label_language_values['nov'])),
 ucfirst(strtolower($label_language_values['december'])),
@@ -121,7 +121,7 @@ strtoupper($label_language_values['pm']));
 		$where_condition .= " OR cus_dt LIKE '%".$params['search']['value']."%' )";
 	}
 
-	$sql_query = " SELECT * FROM ct_users ";
+	$sql_query = " SELEd4m * FROM d4m_users ";
 	$sqlTot .= $sql_query;
 	$sqlRec .= $sql_query;
 	
@@ -142,7 +142,7 @@ strtoupper($label_language_values['pm']));
 
 	while( $row = mysqli_fetch_assoc($queryRecords) ) { 
 	if($row["cus_dt"] != ""){
-		$row["cus_dt"] = $booking_date = str_replace($english_date_array,$selected_lang_label,date($get_date_format.$times,strtotime($row["cus_dt"])));
+		$row["cus_dt"] = $booking_date = str_replace($english_date_array,$seled4med_lang_label,date($get_date_format.$times,strtotime($row["cus_dt"])));
 	}
 	$bk="myregistercust_bookings";
 	$booking = $user->get_users_totalbookings($row["id"]);

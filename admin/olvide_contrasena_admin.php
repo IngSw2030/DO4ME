@@ -3,11 +3,11 @@
 session_start();
 include_once(dirname(dirname(__FILE__)).'/header.php');
 include(dirname(__FILE__).'/user_session_check.php');
-include (dirname(dirname(__FILE__)).'/objects/class_setting.php');
-include (dirname(dirname(__FILE__)).'/objects/class_connection.php');
-include(dirname(dirname(__FILE__)).'/objects/class_front_first_step.php');
+include (dirname(dirname(__FILE__)).'/objed4ms/class_setting.php');
+include (dirname(dirname(__FILE__)).'/objed4ms/class_conned4mion.php');
+include(dirname(dirname(__FILE__)).'/objed4ms/class_front_first_step.php');
 $con = new do4me_db();
-$conn = $con->connect();
+$conn = $con->conned4m();
 $setting = new do4me_setting();
 $setting->conn = $conn;
 $first_step=new do4me_first_step();
@@ -21,7 +21,7 @@ $first_step->conn=$conn;
 	$_SESSION['user_id']=$user_id;
 	$url_time=$explode[1];
 	$current_time=strtotime($current_times);
-$lang = $setting->get_option("ct_language");
+$lang = $setting->get_option("d4m_language");
 $label_language_values = array();
 $language_label_arr = $setting->get_all_labelsbyid($lang);
 
@@ -88,20 +88,20 @@ else
 		$label_language_values[$key] = urldecode($value);
 	}
 }
-$loginimage=$setting->get_option('ct_login_image');
+$loginimage=$setting->get_option('d4m_login_image');
 if($loginimage!=''){
 	$imagepath=SITE_URL."assets/images/backgrounds/".$loginimage;
 }else{
 	$imagepath=SITE_URL."assets/images/login-bg.jpg";
 }
 ?>
-<!DOCTYPE html>
+<!DOd4mYPE html>
 <html lang="en">
     <head>
 		<meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title><?php echo $label_language_values['reset_password'];?> | <?php  echo $setting->get_option("ct_page_title"); ?></title>
+        <title><?php echo $label_language_values['reset_password'];?> | <?php  echo $setting->get_option("d4m_page_title"); ?></title>
 		<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>/assets/css/login-style.css" />
 		<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>/assets/css/bootstrap/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>/assets/css/bootstrap/bootstrap-theme.min.css" />
@@ -114,7 +114,7 @@ if($loginimage!=''){
  		</script>		
 		<script src="<?php echo BASE_URL; ?>/assets/js/jquery.validate.min.js"></script> 
 		<script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/login.js"></script>
-		<?php  include(dirname(__FILE__)."/language_js_objects.php");?> 
+		<?php  include(dirname(__FILE__)."/language_js_objed4ms.php");?> 
 			
 		<style>
 		body{
@@ -131,11 +131,11 @@ if($loginimage!=''){
 			 
 	</head>
     <body>
-		<div id="ct-reset-password">
-		<section class="main">
+		<div id="d4m-reset-password">
+		<sed4mion class="main">
 			<div class="vertical-alignment-helper">
 				<div class="vertical-align-center">
-					<div class="ct-reset-password visible animated fadeInUp">
+					<div class="d4m-reset-password visible animated fadeInUp">
 						<div class="form-container">
 							<div class="tab-content">
 								<form id="reset_new_passwd" method="post">
@@ -154,13 +154,13 @@ if($loginimage!=''){
 									if($current_time > $url_time){	?>
 										<label style="display:block;color:'red';"><?php echo $label_language_values['your_reset_password_link_expired'];?></label>
 									<div class="clearfix"> 
-										<a href="javascript:void(0)" class="btn ct-reset-btn btn-lg ct-xs-12 col-xs-12"><?php echo $label_language_values['reset_password'];?></a>
+										<a href="javascript:void(0)" class="btn d4m-reset-btn btn-lg d4m-xs-12 col-xs-12"><?php echo $label_language_values['reset_password'];?></a>
 									</div>
 									<?php 
 										}else{
 									?>
 									<div class="clearfix"> 
-										<a class="btn ct-reset-btn btn-lg ct-xs-12 col-xs-12" href="javascript:void(0)" id="reset_new_password" type="submit"><?php echo $label_language_values['reset_password'];?></a>
+										<a class="btn d4m-reset-btn btn-lg d4m-xs-12 col-xs-12" href="javascript:void(0)" id="reset_new_password" type="submit"><?php echo $label_language_values['reset_password'];?></a>
 									</div>
 									<?php 
 										}
@@ -173,7 +173,7 @@ if($loginimage!=''){
 					
 				</div>
 			</div>
-		</section>
+		</sed4mion>
 				
 			
 		</div>
